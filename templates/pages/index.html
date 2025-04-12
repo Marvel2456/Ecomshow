@@ -1,0 +1,476 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+
+<!-- slider-area-start -->
+<section class="slider-area slider-bg slider-bg-height">
+    <div class="slider-pagination-2 p-relative">
+        <div class="swiper-containers slidertwo-active">
+            <div class="swiper-wrapper">
+            <div class="swiper-slide slider-bg">
+                <div class="container">
+                    <div class="slider-top-padding pt-55">
+                        <div class="row p-relative align-items-end">
+                        <div class="col-xl-5 col-lg-6 col-md-6 d-flex align-self-center">
+                            <div class="tpslidertwo__item">
+                                <div class="tpslidertwo__content">
+                                    <h4 class="tpslidertwo__sub-title">Winter</h4>
+                                    <h3 class="tpslidertwo__title mb-10">Exclusive <br> Winter Collection</h3>
+                                    <p>New Modern Stylist Fashionable Women's Wear holder</p>
+                                    <div class="tpslidertwo__slide-btn">
+                                    <a class="tp-btn banner-animation" href="shop.html">Shop Now <i
+                                        class="fal fa-long-arrow-right"></i>
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-6 col-md-6 d-none d-md-block">
+                            <div class="tpslidertwo__img p-relative text-end">
+                                <img src="{% static 'assets/img/pexels.jpg' %}" style="height:770px; width:750px;"  alt="">
+                                {% comment %} <div class="tpslidertwo__img-shape">
+                                    <img src="{% static 'assets/img/slider/fasion-tag-01.png' %}" alt="tag">
+                                </div> {% endcomment %}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide slider-bg">
+                <div class="container">
+                    <div class="slider-top-padding pt-55">
+                        <div class="row p-relative align-items-end">
+                        <div class="col-xl-5 col-lg-6 col-md-6 d-flex align-self-center">
+                            <div class="tpslidertwo__item">
+                                <div class="tpslidertwo__content">
+                                    <h4 class="tpslidertwo__sub-title">Winter</h4>
+                                    <h3 class="tpslidertwo__title mb-10">Exclusive <br> Women's Fashion</h3>
+                                    <p>New Modern Stylist Fashionable Women's Wear holder</p>
+                                    <div class="tpslidertwo__slide-btn">
+                                    <a class="tp-btn banner-animation" href="shop.html">Shop Now <i
+                                        class="fal fa-long-arrow-right"></i>
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-6 col-md-6 d-none d-md-block">
+                            <div class="tpslidertwo__img p-relative text-end">
+                                <img src="{% static 'assets/img/pexels.jpg' %}" style="height:770px; width:750px;"  alt="">
+                                {% comment %} <div class="tpslidertwo__img-shape">
+                                    <img src="{% static 'assets/img/slider/fasion-tag-01.png' %}" alt="tag">
+                                </div> {% endcomment %}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide slider-bg">
+                <div class="container">
+                    <div class="slider-top-padding pt-55">
+                        <div class="row p-relative align-items-end">
+                        <div class="col-xl-5 col-lg-6 col-md-6 d-flex align-self-center">
+                            <div class="tpslidertwo__item">
+                                <div class="tpslidertwo__content">
+                                    <h4 class="tpslidertwo__sub-title">Winter</h4>
+                                    <h3 class="tpslidertwo__title mb-10">Exclusive <br> Summer Collection</h3>
+                                    <p>New Modern Stylist Fashionable Women's Wear holder</p>
+                                    <div class="tpslidertwo__slide-btn">
+                                    <a class="tp-btn banner-animation" href="shop.html">Shop Now <i
+                                        class="fal fa-long-arrow-right"></i>
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-6 col-md-6 d-none d-md-block">
+                            <div class="tpslidertwo__img p-relative text-end">
+                                <img src="{% static 'assets/img/pexels.jpg' %}" style="height:770px; width:750px;" alt="">
+                                {% comment %} <div class="tpslidertwo__img-shape">
+                                    <img src="assets/img/slider/fasion-tag-01.png" alt="tag">
+                                </div> {% endcomment %}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="slider-two-pagination">
+            <div class="container">
+            <div class="slider-two-pagination-item p-relative">
+                <div class="slidertwo_pagination"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- slider-area-end -->
+
+<!-- banner-area-start -->
+<section class="banner-area pt-100 pb-95">
+    <div class="container">
+        <div class="row g-0">
+        </div>
+    </div>
+</section>
+<!-- banner-area-end -->
+
+<!-- product-area-start -->
+<section class="product-area pb-65">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-4 col-md-4">
+             <div class="tpsection mb-40">
+                <h4 class="tpsection__title">Popular Products</h4>
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+             <div class="tpproductnav tpnavbar">
+                <nav>
+                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <button class="nav-link active" id="nav-all-tab" data-bs-toggle="tab"
+                         data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all"
+                         aria-selected="true">All</button>
+                      <button class="nav-link" id="nav-popular-tab" data-bs-toggle="tab"
+                         data-bs-target="#nav-popular" type="button" role="tab" aria-controls="nav-popular"
+                         aria-selected="false">Popular</button>
+                      <button class="nav-link" id="nav-sale-tab" data-bs-toggle="tab" data-bs-target="#nav-sale"
+                         type="button" role="tab" aria-controls="nav-sale" aria-selected="false">Featured</button>
+                   </div>
+                </nav>
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-2">
+             <div class="tpproductall">
+                <a href="shop.html">View All<i class="far fa-long-arrow-right"></i></a>
+             </div>
+          </div>
+       </div>
+       <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+            <div
+                class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 tpproduct">
+                {% for all_product in all_product %}
+                <div class="col">
+                   <div class="tpproduct tpproductitem mb-15 p-relative">
+                      <div class="tpproduct__thumb">
+                         <div class="tpproduct__thumbitem p-relative">
+                            <a href="shop-details-2.html">
+                               <img src="{{all_product.image.url}}" alt="product-thumb">
+                               {% comment %} <img class="thumbitem-secondary" src="{% static 'assets/img/product/home-two/product-28.jpg' %}" alt="product-thumb"> {% endcomment %}
+                            </a>
+                            <div class="tpproduct__thumb-bg">
+                               <div class="tpproductactionbg">
+                                  <a href="cart.html"><i class="fal fa-shopping-basket"></i></a>
+                                  <a href="#"><i class="fal fa-exchange"></i></a>
+                                  <a href="#"><i class="fal fa-eye"></i></a>
+                                  <a href="wishlist.html"><i class="fal fa-heart"></i></a>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="tpproduct__content-area">
+                         <h3 class="tpproduct__title mb-5"><a href="shop-details.html">{{all_product.name}}</a></h3>
+                         <div class="tpproduct__priceinfo p-relative">
+                            <div class="tpproduct__ammount">
+                               <span>${{all_product.price}}</span>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="tpproduct__ratingarea">
+                         <div class="d-flex align-items-center justify-content-between">
+                            <div class="tpproductdot">
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg"></span>
+                                     <span class="tpproductdot__termshape-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg red-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border red-product-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg orange-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border orange-product-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg purple-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border purple-product-border"></span>
+                                  </div>
+                               </a>
+                            </div>
+                            <div class="tpproduct__rating">
+                               <ul>
+                                  <li>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="far fa-star"></i></a>
+                                  </li>
+                                  <li>
+                                     <span>(81)</span>
+                                  </li>
+                               </ul>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                {% endfor %}
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-popular" role="tabpanel" aria-labelledby="nav-popular-tab">
+             <div
+                class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 tpproduct">
+                {% for popular_product in popular_product %}
+                <div class="col">
+                   <div class="tpproduct tpproductitem mb-15 p-relative">
+                      <div class="tpproduct__thumb">
+                         <div class="tpproduct__thumbitem p-relative">
+                            <a href="shop-details-2.html">
+                               <img src="{{popular_product.image.url}}" alt="product-thumb">
+                               {% comment %} <img class="thumbitem-secondary" src="assets/img/product/home-two/product-34.jpg" alt="product-thumb"> {% endcomment %}
+                            </a>
+                            <div class="tpproduct__thumb-bg">
+                               <div class="tpproductactionbg">
+                                  <a href="cart.html"><i class="fal fa-shopping-basket"></i></a>
+                                  <a href="#"><i class="fal fa-exchange"></i></a>
+                                  <a href="#"><i class="fal fa-eye"></i></a>
+                                  <a href="wishlist.html"><i class="fal fa-heart"></i></a>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="tpproduct__content-area">
+                         <h3 class="tpproduct__title mb-5"><a href="shop-details.html">{{popular_product.name}}</a></h3>
+                         <div class="tpproduct__priceinfo p-relative">
+                            <div class="tpproduct__ammount">
+                               <span>${{popular_product.price}}</span>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="tpproduct__ratingarea">
+                         <div class="d-flex align-items-center justify-content-between">
+                            <div class="tpproductdot">
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg"></span>
+                                     <span class="tpproductdot__termshape-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg red-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border red-product-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg orange-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border orange-product-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg purple-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border purple-product-border"></span>
+                                  </div>
+                               </a>
+                            </div>
+                            <div class="tpproduct__rating">
+                               <ul>
+                                  <li>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="far fa-star"></i></a>
+                                  </li>
+                                  <li>
+                                     <span>(81)</span>
+                                  </li>
+                               </ul>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                {% endfor %}
+             </div>
+          </div>
+          <div class="tab-pane fade" id="nav-sale" role="tabpanel" aria-labelledby="nav-sale-tab">
+             <div
+                class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 tpproduct">
+                {% for featured_product in featured_product %}
+                <div class="col">
+                   <div class="tpproduct tpproductitem mb-15 p-relative">
+                      <div class="tpproduct__thumb">
+                         <div class="tpproduct__thumbitem p-relative">
+                            <a href="shop-details-2.html">
+                               <img src="{% static 'assets/img/product/home-two/product-35.jpg' %}" alt="product-thumb">
+                               {% comment %} <img class="thumbitem-secondary" src="assets/img/product/home-two/product-36.jpg" alt="product-thumb"> {% endcomment %}
+                            </a>
+                            <div class="tpproduct__thumb-bg">
+                               <div class="tpproductactionbg">
+                                  <a href="cart.html"><i class="fal fa-shopping-basket"></i></a>
+                                  <a href="#"><i class="fal fa-exchange"></i></a>
+                                  <a href="#"><i class="fal fa-eye"></i></a>
+                                  <a href="wishlist.html"><i class="fal fa-heart"></i></a>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="tpproduct__content-area">
+                         <h3 class="tpproduct__title mb-5"><a href="shop-details.html">Miklonda Co. Crafted Candles</a></h3>
+                         <div class="tpproduct__priceinfo p-relative">
+                            <div class="tpproduct__ammount">
+                               <span>$31.00</span>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="tpproduct__ratingarea">
+                         <div class="d-flex align-items-center justify-content-between">
+                            <div class="tpproductdot">
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg"></span>
+                                     <span class="tpproductdot__termshape-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg red-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border red-product-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg orange-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border orange-product-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg purple-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border purple-product-border"></span>
+                                  </div>
+                               </a>
+                            </div>
+                            <div class="tpproduct__rating">
+                               <ul>
+                                  <li>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="far fa-star"></i></a>
+                                  </li>
+                                  <li>
+                                     <span>(81)</span>
+                                  </li>
+                               </ul>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                {% endfor %}
+             </div>
+          </div>
+          <div class="tab-pane fade" id="nav-rate" role="tabpanel" aria-labelledby="nav-rate-tab">
+             <div
+                class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 tpproduct">
+                <div class="col">
+                   <div class="tpproduct tpproductitem mb-15 p-relative">
+                      <div class="tpproduct__thumb">
+                         <div class="tpproduct__thumbitem p-relative">
+                            <a href="shop-details-2.html">
+                               <img src="{% static 'assets/img/product/home-two/product-33.jpg' %}" alt="product-thumb">
+                               {% comment %} <img class="thumbitem-secondary" src="assets/img/product/home-two/product-34.jpg" alt="product-thumb"> {% endcomment %}
+                            </a>
+                            <div class="tpproduct__thumb-bg">
+                               <div class="tpproductactionbg">
+                                  <a href="cart.html"><i class="fal fa-shopping-basket"></i></a>
+                                  <a href="#"><i class="fal fa-exchange"></i></a>
+                                  <a href="#"><i class="fal fa-eye"></i></a>
+                                  <a href="wishlist.html"><i class="fal fa-heart"></i></a>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="tpproduct__content-area">
+                         <h3 class="tpproduct__title mb-5"><a href="shop-details.html">Purab Enormous Miranda Bottle</a></h3>
+                         <div class="tpproduct__priceinfo p-relative">
+                            <div class="tpproduct__ammount">
+                               <span>$31.00</span>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="tpproduct__ratingarea">
+                         <div class="d-flex align-items-center justify-content-between">
+                            <div class="tpproductdot">
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg"></span>
+                                     <span class="tpproductdot__termshape-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg red-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border red-product-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg orange-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border orange-product-border"></span>
+                                  </div>
+                               </a>
+                               <a class="tpproductdot__variationitem" href="shop-details.html">
+                                  <div class="tpproductdot__termshape">
+                                     <span class="tpproductdot__termshape-bg purple-product-bg"></span>
+                                     <span class="tpproductdot__termshape-border purple-product-border"></span>
+                                  </div>
+                               </a>
+                            </div>
+                            <div class="tpproduct__rating">
+                               <ul>
+                                  <li>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="fas fa-star"></i></a>
+                                     <a href="#"><i class="far fa-star"></i></a>
+                                  </li>
+                                  <li>
+                                     <span>(81)</span>
+                                  </li>
+                               </ul>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                
+             </div>
+          </div>
+       </div>
+    </div>
+</section>
+<!-- product-area-end -->
+
+{% endblock content %}
