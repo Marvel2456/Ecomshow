@@ -70,7 +70,7 @@
                             <div class="tpproduct tpproductitem mb-15 p-relative">
                             <div class="tpproduct__thumb">
                                 <div class="tpproduct__thumbitem p-relative">
-                                    <a href="shop-details-2.html">
+                                    <a href="{% url 'product_detail' product.id %}">
                                         <img src="{{product.image.url}}" alt="product-thumb">
                                         {% comment %} <img class="thumbitem-secondary" src="assets/img/product/home-two/product-22.jpg" alt="product-thumb"> {% endcomment %}
                                     </a>

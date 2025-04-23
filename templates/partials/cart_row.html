@@ -1,0 +1,51 @@
+<tr id="cart-row-{{ product.id }}">
+    <td class="product-thumbnail">
+        <a href="{% url 'product_detail' product.id %}">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </a>
+    </td>
+    <td class="product-name">
+        <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+    </td>
+    <td class="product-price">
+        <span class="amount">${{ product.price }}</span>
+    </td>
+    <td class="product-quantity">
+        <form 
+            hx-post="{% url 'update_cart_quantity' %}" 
+            hx-target="#cart-row-{{ product.id }}" 
+            hx-swap="outerHTML"
+        >
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+
+            <input 
+                class="cart-input" 
+                type="number" 
+                name="quantity" 
+                value="{{ quantity }}" 
+                min="1"
+                hx-trigger="change delay:300ms"
+                hx-post="{% url 'update_cart_quantity' %}"
+                hx-target="#cart-row-{{ product.id }}"
+                hx-swap="outerHTML"
+                hx-include="closest form"
+                />
+
+        </form>
+    </td>
+    <td class="product-subtotal">
+        <span class="amount">${{ subtotal }}</span>
+    </td>
+    <td class="product-remove">
+        <form 
+            hx-post="{% url 'remove_from_cart' %}" 
+            hx-target="#cart-row-{{ product.id }}" 
+            hx-swap="outerHTML remove"
+        >
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <button type="submit"><i class="fa fa-times"></i></button>
+        </form>
+    </td>
+</tr>

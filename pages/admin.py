@@ -65,3 +65,12 @@ class OrderItemAdmin(ModelAdmin):
     list_filter = ['order__status']
     ordering = ['order__created_at']
     list_per_page = 10
+
+
+@admin.register(WalletAdress)
+class WalletAdressAdmin(ModelAdmin):
+    list_display = ['address', 'name', 'created_at']
+    search_fields = ['address', 'name']
+    list_filter = ['created_at']
+    ordering = ['created_at']
+    list_per_page = 10

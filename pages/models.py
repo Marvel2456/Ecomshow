@@ -46,12 +46,25 @@ class Contact(models.Model):
     
 
 class Order(models.Model):
+    id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4, editable=False)
     session_id = models.CharField(max_length=255)
     customer_name = models.CharField(max_length=200)
     customer_email = models.EmailField()
+    customer_city = models.CharField(max_length=200, blank=True, null=True)
+    customer_state = models.CharField(max_length=200, blank=True, null=True)
+    customer_zip = models.CharField(max_length=20, blank=True, null=True)
+    customer_country = models.CharField(max_length=200, blank=True, null=True)
     customer_address = models.TextField()
+    customer_phone = models.CharField(max_length=20, blank=True, null=True)
+    customer_notes = models.TextField(blank=True, null=True)
     total_cost = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=20, default='Pending')  # Example: Pending, Completed
+    Order_Status = (
+        ('Pending', 'Pending'),
+        ('Processing', 'Processing'),
+        ('Completed', 'Completed'),
+        ('Cancelled', 'Cancelled'),
+    )
+    status = models.CharField(max_length=20, choices=Order_Status, default='Pending')
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -59,9 +72,19 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name="items", on_delete=models.CASCADE)
-    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return f"{self.product.name} x {self.quantity}"
+    
+
+class WalletAdress(models.Model):
+    id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=300, blank=True, null=True)
+    address = models.CharField(max_length=300, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+    def __str__(self):
+        return self.name

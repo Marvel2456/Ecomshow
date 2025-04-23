@@ -1,17 +1,40 @@
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.conf import settings
 
-def send_order_email(form_data, cart_items, total_cost):
-    body = f"New Order:\n\n"
-    for item in cart_items:
-        body += f"{item['product'].name} x {item['quantity']} = {item['total_price']}\n"
-    body += f"\nTotal: {total_cost}\n\n"
-    body += f"Customer Info:\n{form_data['name']}\n{form_data['email']}\n{form_data['address']}"
+def send_order_emails(context, user_email):
+    # Generate the HTML email inline
+    cart_html = ""
+    for item in context['cart_items']:
+        cart_html += f"<li>{item['product'].name} × {item['quantity']} — ${item['subtotal']}</li>"
 
-    send_mail(
+    email_body = f"""
+        <h2>Order Summary</h2>
+        <p><strong>Name:</strong> {context['first_name']} {context['last_name']}</p>
+        <p><strong>Email:</strong> {context['email']}</p>
+        <p><strong>Phone:</strong> {context['phone']}</p>
+        <p><strong>Address:</strong> {context['address']}, {context['city']}</p>
+        <p><strong>Notes:</strong> {context['notes']}</p>
+        <p><strong>Proof of Payment:</strong> {'Provided' if context['proof_provided'] else 'Not Provided'}</p>
+        <h3>Cart Items:</h3>
+        <ul>{cart_html}</ul>
+        <p><strong>Total:</strong> ${context['total_cost']}</p>
+    """
+
+    admin_email = settings.ADMIN_EMAIL
+
+    # Send to admin
+    EmailMessage(
         subject='New Order Received',
-        message=body,
-        from_email=form_data['email'],
-        recipient_list=[settings.ADMIN_EMAIL],
-        fail_silently=False,
-    )
+        body=email_body,
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        to=[admin_email],
+        headers={'Reply-To': context['email']},
+    ).send()
+
+    # Send to customer
+    EmailMessage(
+        subject='Your Order Confirmation',
+        body=email_body,
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        to=[user_email],
+    ).send()

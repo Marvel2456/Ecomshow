@@ -20,4 +20,6 @@ class ContactForm(ModelForm):
 class CheckoutForm(ModelForm):
     class Meta:
         model = Order
-        fields = ['customer_name', 'customer_email', 'customer_address']
+        fields = ['customer_name', 'customer_email', 'customer_address', 'customer_city', 
+                  'customer_state', 'customer_zip', 'customer_country', 'customer_phone', 
+                  'customer_notes']

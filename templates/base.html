@@ -82,5 +82,33 @@
         <script src="{% static 'assets/js/meanmenu.js' %}"></script>
         <script src="{% static 'assets/js/jquery.knob.js' %}"></script>
         <script src="{% static 'assets/js/main.js' %}"></script>
+        <script src="{% static 'assets/js/modal.js' %}"></script>
+        <script src="{% static 'assets/js/checkout.js' %}"></script>
+
+        <script>
+            document.body.addEventListener('htmx:afterOnLoad', function(event) {
+              const response = event.detail.xhr.response;
+          
+              try {
+                const data = JSON.parse(response);
+          
+                // Update product row
+                const productId = event.target.dataset.productId;
+                const row = document.getElementById(`cart-row-${productId}`);
+                if (row) {
+                  row.outerHTML = data.row_html;
+                }
+          
+                // Update cart count
+                const cartCount = document.getElementById('cart-count');
+                if (cartCount) {
+                  cartCount.outerHTML = data.cart_count_html;
+                }
+              } catch (e) {
+                // Not a JSON response? Ignore.
+              }
+            });
+        </script>
+          
     </body>
 </html>
