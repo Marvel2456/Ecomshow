@@ -197,11 +197,12 @@ def checkoutView(request):
 
             # Clear the cart from session
             request.session['cart'] = {}
+            request.session.modified = True
 
-            # Optionally, clear the entire session data if you want to remove the session ID as well
-            request.session.flush()
 
-            return redirect('products')
+            response = HttpResponse(status=200)
+            response['HX-Redirect'] = '/products'
+            return response
     else:
         form = CheckoutForm()
 

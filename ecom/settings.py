@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'ecom.context_processors.cart_count',
+                'ecom.context_processors.cart_items',
             ],
         },
     },
@@ -137,3 +138,5 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ADMIN_EMAIL = 'info@hashminer.com'
