@@ -22,4 +22,4 @@ class CheckoutForm(ModelForm):
         model = Order
         fields = ['customer_name', 'customer_email', 'customer_address', 'customer_city', 
                   'customer_state', 'customer_zip', 'customer_country', 'customer_phone', 
-                  'customer_notes']
+                  'customer_notes', 'payment_method']

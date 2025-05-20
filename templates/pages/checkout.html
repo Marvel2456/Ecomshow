@@ -4,164 +4,155 @@
 
 {% block content %}
 
-<!-- breadcrumb-area -->
-<section class="breadcrumb__area pt-60 pb-60 tp-breadcrumb__bg" data-background="{% static 'assets/img/pexels.jpg' %}">
-    <div class="container">
-       <div class="row align-items-center">
-          <div class="col-xl-7 col-lg-12 col-md-12 col-12">
-             <div class="tp-breadcrumb">
-                <div class="tp-breadcrumb__link mb-10">
-                   <span class="breadcrumb-item-active"><a href="{% url 'index' %}">Home</a></span>
-                   <span>Checkout</span>
-                </div>
-                <h2 class="tp-breadcrumb__title">Checkout Page</h2>
-             </div>
-          </div>
-       </div>
-    </div>
-</section>
-<!-- breadcrumb-area-end -->
-     
-<!-- coupon-area start -->
-<section class="coupon-area pt-80 pb-30 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
-    <div class="container">
-    <div class="row">
-    </div>
- </div>
- </section>
- <!-- coupon-area end -->
+<main class="main">
+<div class="page-header text-center" style="background-image: url('{% static "assets/images/page-header-bg.jpg" %}')">
+   <div class="container">
+      <h1 class="page-title">Checkout<span>Shop</span></h1>
+   </div><!-- End .container -->
+</div><!-- End .page-header -->
+   <nav aria-label="breadcrumb" class="breadcrumb-nav">
+         <div class="container">
+            <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+               <li class="breadcrumb-item"><a href="#">Shop</a></li>
+               <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+            </ol>
+         </div><!-- End .container -->
+   </nav><!-- End .breadcrumb-nav -->
 
- <!-- checkout-area start -->
- <section class="checkout-area pb-50 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
-    <div class="container">
-       <form action="#" method="POST">
-         {% csrf_token %}
-          <div class="row">
-                <div class="col-lg-6 col-md-12">
-                   <div class="checkbox-form">
-                      <h3>Billing Details</h3>
-                      <div class="row">
-                           <div class="col-md-12">
-                              <div class="checkout-form-list">
-                                 <label>Country <span class="required">*</span></label>
-                                 <input type="text" name="customer_country" placeholder="Country" />
-                              </div>
-                           </div>
-                           <div class="col-md-12">
-                              <div class="checkout-form-list">
-                                 <label>Full Name <span class="required">*</span></label>
-                                 <input type="text" name="customer_name" placeholder="Name" />
-                              </div>
-                           </div>
-                            <div class="col-md-12">
-                               <div class="checkout-form-list">
-                                  <label>Address <span class="required">*</span></label>
-                                  <input type="text" name="customer_address" placeholder="Address" />
-                               </div>
-                            </div>
-                            <div class="col-md-12">
-                               <div class="checkout-form-list">
-                                  <label>Town / City <span class="required">*</span></label>
-                                  <input type="text" name="customer_city" placeholder="Town / City" />
-                               </div>
-                            </div>
-                            <div class="col-md-6">
-                               <div class="checkout-form-list">
-                                  <label>State / County <span class="required">*</span></label>
-                                  <input type="text" name="customer_state" placeholder="" />
-                               </div>
-                            </div>
-                            <div class="col-md-6">
-                               <div class="checkout-form-list">
-                                  <label>Postcode / Zip <span class="required">*</span></label>
-                                  <input type="text" name="customer_zip" placeholder="Postcode / Zip" />
-                               </div>
-                            </div>
-                            <div class="col-md-6">
-                               <div class="checkout-form-list">
-                                  <label>Email Address <span class="required">*</span></label>
-                                  <input type="email" name="customer_email" placeholder="" />
-                               </div>
-                            </div>
-                            <div class="col-md-6">
-                               <div class="checkout-form-list">
-                                  <label>Phone <span class="required">*</span></label>
-                                  <input type="text" name="customer_phone" placeholder="Phone number" />
-                               </div>
-                            </div>
+   <div class="page-content">
+      <div class="checkout">
+            <div class="container">
+            <div class="checkout-discount">
+               <form action="#">
+               <input type="text" class="form-control" required id="checkout-discount-input">
+                  <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label>
+               </form>
+            </div><!-- End .checkout-discount -->
+            <form action="" method="POST">
+               {% csrf_token %}
+               <div class="row">
+                  <div class="col-lg-9">
+                     <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+                        
+                          
+                        <label>Name *</label>
+                        <input type="text" name="customer_name" class="form-control" required>
 
-                            <div class="order-notes">
-                              <div class="checkout-form-list">
-                                 <label>Order Notes</label>
-                                 <textarea id="checkout-mess" name="customer_notes" cols="30" rows="10"
-                                       placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                              </div>
-                           </div>
-                            
-                      </div>
-                   </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                   <div class="your-order mb-30 ">
-                      <h3>Your order</h3>
-                      <div class="your-order-table table-responsive">
-                            <table>
-                               <thead>
-                                  <tr>
-                                     <th class="product-name">Product</th>
-                                     <th class="product-total">Quantity</th>
-                                  </tr>
-                               </thead>
-                               <tbody>
+                        <label>Country *</label>
+                        <input type="text" name="customer_country" class="form-control" required>
+
+                        <label>Street address *</label>
+                        <input type="text" name="customer_address" class="form-control" placeholder="House number and Street name" required>
+                        
+                        <div class="row">
+                           <div class="col-sm-6">
+                              <label>Town / City *</label>
+                              <input type="text" name="customer_city" class="form-control" required>
+                           </div><!-- End .col-sm-6 -->
+
+                           <div class="col-sm-6">
+                              <label>State / County *</label>
+                              <input type="text" name="customer_state" class="form-control" required>
+                           </div><!-- End .col-sm-6 -->
+                        </div><!-- End .row -->
+
+                        <div class="row">
+                           <div class="col-sm-6">
+                              <label>Postcode / ZIP *</label>
+                              <input type="text" name="customer_zip" class="form-control" required>
+                           </div><!-- End .col-sm-6 -->
+
+                           <div class="col-sm-6">
+                              <label>Phone *</label>
+                              <input type="tel" name="customer_phone" class="form-control" required>
+                           </div><!-- End .col-sm-6 -->
+                        </div><!-- End .row -->
+
+                        <label>Email address *</label>
+                     <input type="email" name="customer_email" class="form-control" required>
+                        
+                     
+                        <label>Order notes (optional)</label>
+                     <textarea class="form-control" name="customer_notes" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                  </div><!-- End .col-lg-9 -->
+                  <aside class="col-lg-3">
+                     <div class="summary">
+                        <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+
+                        <!-- ...existing code... -->
+                           <table class="table table-summary">
+                              <thead>
+                                 <tr>
+                                    <th>Product</th>
+                                    <th>Total</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
                                  {% for item in cart_items %}
-                                 <tr class="cart_item">
-                                    <td class="product-name">
-                                       {{ item.product.name }} <strong class="product-quantity">  x {{ item.quantity }}</strong>
+                                 <tr>
+                                    <td>
+                                       <a href="{% url 'product_detail' item.product.id %}">
+                                          {{ item.product.name }} <span class="text-muted">x{{ item.quantity }}</span>
+                                       </a>
                                     </td>
+                                    <td>${{ item.total_price|floatformat:2 }}</td>
                                  </tr>
                                  {% endfor %}
-                               </tbody>
-                               <tfoot>
-                                  <tr class="cart-subtotal">
-                                        <th>Cart Subtotal</th>
-                                        <td><span class="amount">${{ total_cost }}</span></td>
+                                 <tr class="summary-subtotal">
+                                    <td>Subtotal:</td>
+                                    <td>${{ cart_total|floatformat:2 }}</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Shipping:</td>
+                                    <td>Free shipping</td>
+                                 </tr>
+                                 <tr class="summary-total">
+                                    <td>Total:</td>
+                                    <td>${{ cart_total|floatformat:2 }}</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <!-- ...existing code... -->
 
-                                  </tr>
-                               </tfoot>
-                            </table>
-                      </div>
-                      <div class="payment-method">
-                         <div class="accordion" id="checkoutAccordion">
-                            <div class="">
-                              <div class="checkout-form-list pb-20">
-                                 <label>Payment Method <span class="required">*</span></label>
-                                 <select id="payment-method" name="payment_method" required class="form-select">
-                                    <option value="bitcoin">Bitcoin</option>
-                                 </select>
+                        <div class="accordion-summary" id="accordion-payment">
+                           <div class="card">
+                              <div class="card-header">
+                                 <h2 class="card-title">Select Payment Method</h2>
                               </div>
-                                
-                            </div>
-                         </div>
-                        <div class="order-button-payment mt-20">
-                           <button 
-                              type="button" 
-                              class="tp-btn tp-color-btn w-100 banner-animation"
-                              hx-post="{% url 'check_payment_method' %}"
-                              hx-include="form"
-                              hx-target="#payment-response"
-                              hx-swap="innerHTML">
-                              Place order
-                           </button>
+                              <div class="card-body">
+                                 <div class="form-check">
+                                       <input class="form-check-input" type="radio" name="payment_method" id="bitcoin" value="bitcoin" required>
+                                       <label class="form-check-label" for="bitcoin">Bitcoin</label>
+                                 </div>
+                                 <div class="form-check">
+                                       <input class="form-check-input" type="radio" name="payment_method" id="ethereum" value="ethereum" required>
+                                       <label class="form-check-label" for="ethereum">Ethereum</label>
+                                 </div>
+                              </div>
+                           </div>
+                     </div><!-- End .accordion -->
 
-                        
-                        </div>
-                        <div id="payment-response"></div>
-                      </div>
-                   </div>
-                </div>
-          </div>
-       </form>
-    </div>
-</section>
-<!-- checkout-area end -->
+                     <input type="hidden" name="total_cost" value="{{ cart_total }}">
+
+                        <button
+                           type="submit"
+                           class="btn btn-outline-primary-2 btn-order btn-block"
+                           hx-post="{% url 'check_payment_method' %}"
+                           hx-params="*"
+                           hx-target="#payment-response"
+                           hx-swap="innerHTML"
+                        >
+                           <span class="btn-text">Place Order</span>
+                           <span class="btn-hover-text">Proceed to Checkout</span>
+                        </button>
+                     </div><!-- End .summary -->
+                  </aside><!-- End .col-lg-3 -->
+               </div><!-- End .row -->
+            </form>
+            </div><!-- End .container -->
+         </div><!-- End .checkout -->
+   </div><!-- End .page-content -->
+   <div id="payment-response"></div>
+</main><!-- End .main -->
 {% endblock content %}

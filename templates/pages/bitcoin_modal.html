@@ -2,15 +2,18 @@
    <div class="modal-dialog">
       <div class="modal-content p-4">
          <div class="modal-header">
-            <h5 class="modal-title">Bitcoin Payment</h5>
+            <h5 class="modal-title">Payment</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body text-center">
             <p>Send the exact amount to this address:</p>
-            <code style="display:block; word-break:break-all;">{{ btc_address }}</code>
+            <code style="display:block; word-break:break-all;">{{ crypto_address }}</code>
+
+            <!-- Display the total cost in the selected cryptocurrency -->
+            <p class="mt-3">Total Cost in {{ crypto_name }}: <strong>{{ total_cost_in_crypto }} {{ crypto_name }}</strong></p>
 
             <!-- Optional: Generate QR based on address -->
-            <img src="https://api.qrserver.com/v1/create-qr-code/?data={{ btc_address }}&size=200x200" alt="QR Code" style="margin: 20px auto;" />
+            <img src="https://api.qrserver.com/v1/create-qr-code/?data={{ crypto_address }}&size=200x200" alt="QR Code" style="margin: 20px auto;" />
 
             <p class="mt-3">Once you've made the payment, click below:</p>
          </div>
@@ -29,8 +32,35 @@
       </div>
    </div>
 </div>
-
 <script>
+   setTimeout(function() {
+      var modalEl = document.getElementById('bitcoinModal');
+      if (modalEl) {
+         // Remove any previously attached modals to avoid duplicates
+         var existing = document.querySelectorAll('.modal-backdrop');
+         existing.forEach(function(e) { e.parentNode.removeChild(e); });
+
+         var modal = new bootstrap.Modal(modalEl);
+         modal.show();
+
+         // Optional: Ensure close button works even if modal is injected dynamically
+         modalEl.addEventListener('hidden.bs.modal', function () {
+            modalEl.remove();
+         });
+      }
+   }, 100);
+</script>
+{% comment %} <script>
+   // Wait for the DOM to update, then show the modal
+   setTimeout(function() {
+      var modalEl = document.getElementById('bitcoinModal');
+      if (modalEl) {
+         var modal = new bootstrap.Modal(modalEl);
+         modal.show();
+      }
+   }, 100);
+</script> {% endcomment %}
+{% comment %} <script>
    function closeModalAndRedirect() {
       // Close the modal
       const modal = document.querySelector("#bitcoinModal");
@@ -44,4 +74,4 @@
       // Redirect to the products page
       // window.location.href = "/products";
   }
-</script>
+</script> {% endcomment %}

@@ -4,7 +4,10 @@ from .forms import ContactForm, CheckoutForm
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.http import HttpResponse, HttpResponseBadRequest
-from .emails import send_order_emails
+from .utils import get_bitcoin_conversion_rate, get_ethereum_conversion_rate
+from django.core.paginator import Paginator
+from django.db.models import Count, Min, Max
+# from .emails import send_order_emails
 # Create your views here.
 
 
@@ -23,10 +26,39 @@ def indexView(request):
     return render(request, 'pages/index.html', context)
 
 def productView(request):
-    product = Product.objects.all()
+    category_id = request.GET.get('category')
+    sortby = request.GET.get('sortby', '')
+    products = Product.objects.all()
+    if category_id:
+        products = products.filter(category_id=category_id)
+
+    if sortby == 'popularity':
+        products = products.filter(is_popular=True)
+    elif sortby == 'featured':
+        products = products.filter(is_featured=True)
+    elif sortby == 'rating':
+        products = products.filter(is_top_rated=True)
+    elif sortby == 'date':
+        products = products.order_by('-created_at')
+    elif sortby == 'all':
+        products = products.all()
+
+    paginator = Paginator(products, 6)
+
+    page_number = request.GET.get('page') 
+    product = paginator.get_page(page_number)
+
+    categories = Category.objects.annotate(product_count=Count('product'))
+
+    price_range = products.aggregate(min_price=Min('price'), max_price=Max('price'))
 
     context = {
         'product': product,
+        'categories': categories,
+        'min_price': price_range['min_price'],
+        'max_price': price_range['max_price'],
+        'selected_category': category_id,
+        'selected_sortby': sortby,
     }
     return render(request, 'pages/products.html', context)
 
@@ -55,6 +87,8 @@ def add_to_cart(request):
 
         html = render_to_string("partials/cart_count.html", {'cart_count': cart_count})
         return HttpResponse(html)
+        # response['HX-Redirect'] = request.path
+        # return response
 
 
 def cartView(request):
@@ -82,34 +116,25 @@ def cartView(request):
 
 
 def update_cart_quantity(request):
-    if request.method == 'POST' and request.headers.get('Hx-Request') == 'true':
+    if request.method == 'POST':
         product_id = request.POST.get('product_id')
         quantity = request.POST.get('quantity')
 
         try:
             quantity = int(quantity)
-            if quantity < 1:
-                return HttpResponseBadRequest("Quantity must be at least 1")
         except (ValueError, TypeError):
-            return HttpResponseBadRequest("Invalid quantity")
+            quantity = 1
 
         cart = request.session.get('cart', {})
-        cart[product_id] = quantity
+        if quantity < 1:
+            cart.pop(product_id, None)
+        else:
+            cart[product_id] = quantity
         request.session['cart'] = cart
 
-        # Recalculate subtotal
-        product = Product.objects.get(id=product_id)
-        subtotal = product.price * quantity
+        return redirect('cart')  # Redirect to cart page after update
 
-        context = {
-            'product': product,
-            'quantity': quantity,
-            'subtotal': subtotal
-        }
-        return render(request, 'partials/cart_row.html', context)
-    
-    return HttpResponseBadRequest("Invalid request")
-
+    return redirect('cart')
 
 def remove_from_cart(request):
     if request.method == 'POST' and request.headers.get('Hx-Request') == 'true':
@@ -128,24 +153,37 @@ def remove_from_cart(request):
 def check_payment_method(request):
     if request.method == "POST":
         payment_method = request.POST.get("payment_method")
-        
-        # Retrieve the first WalletAdress instance
-        btc_address = WalletAdress.objects.first()
-        if not btc_address:
-            return HttpResponseBadRequest("No Bitcoin address found.")
+        wallet_address = WalletAdress.objects.first()
+        if not wallet_address:
+            return HttpResponseBadRequest("No wallet address found.")
 
         if payment_method == "bitcoin":
-            # Ensure the address field exists
-            btc_address = btc_address.address
-            html = render_to_string("pages/bitcoin_modal.html", {
-                "btc_address": btc_address
-            })
-            return HttpResponse(html)
+            crypto_address = wallet_address.btc_address
+            conversion_rate = get_bitcoin_conversion_rate()
+            crypto_name = "Bitcoin"
+        elif payment_method == "ethereum":
+            crypto_address = wallet_address.eth_address
+            conversion_rate = get_ethereum_conversion_rate()
+            crypto_name = "Ethereum"
+        else:
+            return HttpResponseBadRequest("Invalid payment method.")
 
-        # Fallback for other payment methods
-        return HttpResponse("<script>document.querySelector('form').submit();</script>")
+        if not conversion_rate:
+            return HttpResponseBadRequest(f"Unable to fetch {crypto_name} conversion rate.")
 
-    return HttpResponse(status=400)
+        # Calculate total price in the selected cryptocurrency
+        total_cost = request.POST.get("total_cost", 0)
+        total_cost_in_crypto = float(total_cost) / conversion_rate
+
+        # Render the modal with the cryptocurrency price
+        html = render_to_string("pages/bitcoin_modal.html", {
+            "crypto_name": crypto_name,
+            "crypto_address": crypto_address,
+            "total_cost_in_crypto": round(total_cost_in_crypto, 8),
+        })
+        return HttpResponse(html)
+    return HttpResponse("<script>document.querySelector('form').submit();</script>")
+
 
 
 
@@ -180,6 +218,7 @@ def checkoutView(request):
                 customer_country=form.cleaned_data['customer_country'],
                 customer_phone=form.cleaned_data['customer_phone'],
                 customer_notes=form.cleaned_data['customer_notes'],
+                payment_method=form.cleaned_data['payment_method'],
                 total_cost=total_cost,
             )
 
@@ -193,7 +232,7 @@ def checkoutView(request):
                 )
 
             # Send email to admin with the order details
-            # send_order_emails(form.cleaned_data, cart_items, total_cost)
+            # send_order_emails form.cleaned_data, cart_items, total_cost
 
             # Clear the cart from session
             request.session['cart'] = {}
@@ -222,3 +261,7 @@ def contactView(request):
             messages.success(request, 'Your message has been sent successfully.')
             return redirect('contact')
     return render(request, 'pages/contact.html')
+
+
+def deliveryReturnView(request):
+    return render(request, 'pages/delivery.html')

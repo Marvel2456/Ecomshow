@@ -69,8 +69,8 @@ class OrderItemAdmin(ModelAdmin):
 
 @admin.register(WalletAdress)
 class WalletAdressAdmin(ModelAdmin):
-    list_display = ['address', 'name', 'created_at']
-    search_fields = ['address', 'name']
+    list_display = ['btc_address', 'eth_address', 'name', 'created_at']
+    search_fields = ['btc_address', 'eth_address', 'name']
     list_filter = ['created_at']
     ordering = ['created_at']
     list_per_page = 10

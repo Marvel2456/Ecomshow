@@ -4,367 +4,318 @@
 
 {% block content %}
 
-<!-- slider-area-start -->
-<section class="slider-area slider-bg slider-bg-height">
-    <div class="slider-pagination-2 p-relative">
-        <div class="swiper-containers slidertwo-active">
-            <div class="swiper-wrapper">
-            <div class="swiper-slide slider-bg">
-                <div class="container">
-                    <div class="slider-top-padding pt-55">
-                        <div class="row p-relative align-items-end">
-                        <div class="col-xl-5 col-lg-6 col-md-6 d-flex align-self-center">
-                            <div class="tpslidertwo__item">
-                                <div class="tpslidertwo__content">
-                                    <h4 class="tpslidertwo__sub-title">Hashminers</h4>
-                                    <h3 class="tpslidertwo__title mb-10">Join <br>Our Community</h3>
-                                    <p>Mine with Superb mining power, get exceptional result</p>
-                                    <div class="tpslidertwo__slide-btn">
-                                    <a class="tp-btn banner-animation" href="{% url 'products' %}">Shop Now <i
-                                        class="fal fa-long-arrow-right"></i>
-                                    </a>
-                                    </div>
-                                </div>
+<main class="main">
+   <div class="container-fluid">
+         <div class="row">
+            <div class="col-lg-6">
+               <div class="banner banner-big banner-overlay">
+                     <a href="#">
+                        <img src="{% static 'assets/images/h1.jpg' %}" alt="Banner">
+                     </a>
+
+                     <div class="banner-content banner-content-center">
+                        <h3 class="banner-subtitle text-white"><a href="#">New Collection</a></h3><!-- End .banner-subtitle -->
+                        <h2 class="banner-title text-white"><a href="#">Powerful Miners</a></h2><!-- End .banner-title -->
+                        <a href="#" class="btn underline"><span>Discover More</span></a>
+                     </div><!-- End .banner-content -->
+               </div><!-- End .banner -->
+            </div><!-- End .col-lg-6 -->
+
+            <div class="col-lg-6">
+               <div class="banner banner-big banner-overlay">
+                     <a href="#">
+                        <img src="{% static 'assets/images/h2.jpg' %}" alt="Banner">
+                     </a>
+
+                     <div class="banner-content banner-content-center">
+                        <h3 class="banner-subtitle text-white"><a href="#">New Collection</a></h3><!-- End .banner-subtitle -->
+                        <h2 class="banner-title text-white"><a href="#">Top Equipments</a></h2><!-- End .banner-title -->
+                        <a href="#" class="btn underline"><span>Discover More</span></a>
+                     </div><!-- End .banner-content -->
+               </div><!-- End .banner -->
+            </div><!-- End .col-lg-6 -->
+         </div><!-- End .row -->
+
+         <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+               <div class="banner banner-overlay text-white">
+                     <a href="#">
+                        <img src="{% static 'assets/images/h5.jpg' %}" alt="Banner">
+                     </a>
+
+                     <div class="banner-content banner-content-right">
+                        {% comment %} <h4 class="banner-subtitle"><a href="#">Flip Flop</a></h4><!-- End .banner-subtitle -->
+                        <h3 class="banner-title"><a href="#">Summer<br>sale -70% off</a></h3><!-- End .banner-title --> {% endcomment %}
+                        <a href="#" class="btn underline btn-outline-white-3 banner-link">Shop Now</a>
+                     </div><!-- End .banner-content -->
+               </div><!-- End .banner -->
+            </div><!-- End .col-lg-4 -->
+
+            <div class="col-md-6 col-lg-4">
+               <div class="banner banner-overlay color-grey">
+                     <a href="#">
+                        <img src="{% static 'assets/images/h3.jpg' %}" alt="Banner">
+                     </a>
+
+                     <div class="banner-content">
+                        {% comment %} <h4 class="banner-subtitle"><a href="#">Accessories</a></h4><!-- End .banner-subtitle -->
+                        <h3 class="banner-title"><a href="#">2019 Winter<br>up to 50% off</a></h3><!-- End .banner-title --> {% endcomment %}
+                        <a href="#" class="btn underline banner-link">Shop Now</a>
+                     </div><!-- End .banner-content -->
+               </div><!-- End .banner -->
+            </div><!-- End .col-lg-4 -->
+
+            <div class="col-md-6 col-lg-4">
+               <div class="banner banner-overlay text-white">
+                     <a href="#">
+                        <img src="{% static 'assets/images/h6.jpg' %}" alt="Banner">
+                     </a>
+
+                     <div class="banner-content banner-content-right mr">
+                        {% comment %} <h4 class="banner-subtitle"><a href="#">New in</a></h4><!-- End .banner-subtitle -->
+                        <h3 class="banner-title"><a href="#">Women’s<br>sportswear</a></h3><!-- End .banner-title --> {% endcomment %}
+                        <a href="#" class="btn underline btn-outline-white-3 banner-link">Shop Now</a>
+                     </div><!-- End .banner-content -->
+               </div><!-- End .banner -->
+            </div><!-- End .col-lg-4 -->
+         </div><!-- End .row -->
+   </div><!-- End .container-fluid -->
+
+   <div class="icon-boxes-container bg-transparent">
+         <div class="container">
+            <div class="row justify-content-center">
+               <div class="col-lg-8 col-12 icon-boxes">
+                     <div class="col-sm-6 col-lg-4">
+                        <div class="icon-box icon-box-side">
+                           <span class="icon-box-icon">
+                                 <i class="icon-truck"></i>
+                           </span>
+
+                           <div class="icon-box-content">
+                                 <h3 class="icon-box-title">Payment & Delivery</h3><!-- End .icon-box-title -->
+                                 <p>Free shipping for orders over $50</p>
+                           </div><!-- End .icon-box-content -->
+                        </div><!-- End .icon-box -->
+                     </div><!-- End .col-sm-6 col-lg-4 -->
+                     
+                     <div class="col-sm-6 col-lg-4">
+                        <div class="icon-box icon-box-side">
+                           <span class="icon-box-icon">
+                                 <i class="icon-rotate-left"></i>
+                           </span>
+
+                           <div class="icon-box-content">
+                                 <h3 class="icon-box-title">Return & Refund</h3><!-- End .icon-box-title -->
+                                 <p>Free 100% money back guarantee</p>
+                           </div><!-- End .icon-box-content -->
+                        </div><!-- End .icon-box -->
+                     </div><!-- End .col-sm-6 col-lg-4 -->
+
+                     <div class="col-sm-6 col-lg-4">
+                        <div class="icon-box icon-box-side">
+                           <span class="icon-box-icon">
+                                 <i class="icon-headphones"></i>
+                           </span>
+
+                           <div class="icon-box-content">
+                                 <h3 class="icon-box-title">Quality Support</h3><!-- End .icon-box-title -->
+                                 <p>Alway online feedback 24/7</p>
+                           </div><!-- End .icon-box-content -->
+                        </div><!-- End .icon-box -->
+                     </div><!-- End .col-sm-6 col-lg-4 -->
+               </div>
+            </div><!-- End .row -->
+         </div><!-- End .container -->
+   </div><!-- End .icon-boxes-container -->
+
+   <div class="bg-light-2 pt-6 pb-6 featured">
+    <div class="container-fluid">
+        <div class="heading heading-center mb-3">
+            <h2 class="title">LATEST PRODUCTS</h2><!-- End .title -->
+
+            <ul class="nav nav-pills justify-content-center" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="featured-women-link" data-toggle="tab" href="#featured-women-tab" role="tab" aria-controls="featured-women-tab" aria-selected="true">Featured Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="featured-men-link" data-toggle="tab" href="#featured-men-tab" role="tab" aria-controls="featured-men-tab" aria-selected="false">Popular Products</a>
+                </li>
+            </ul>
+        </div><!-- End .heading -->
+
+        <div class="tab-content tab-content-carousel">
+            <!-- Women's Clothing Section -->
+            <div class="tab-pane p-0 fade show active" id="featured-women-tab" role="tabpanel" aria-labelledby="featured-women-link">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                    data-owl-options='{
+                        "nav": false, 
+                        "dots": true,
+                        "margin": 20,
+                        "loop": false,
+                        "responsive": {
+                            "0": {
+                                "items":2
+                            },
+                            "480": {
+                                "items":2
+                            },
+                            "768": {
+                                "items":3
+                            },
+                            "992": {
+                                "items":4
+                            },
+                            "1200": {
+                                "items":5,
+                                "nav": true
+                            }
+                        }
+                    }'>
+                    {% for product in featured_product %}
+                    <div class="product product-7 text-center">
+                        <figure class="product-media">
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                            </a>
+                        </figure>
+                        <div class="product-body">
+                            <h3 class="product-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>
+                            <div class="product-price">
+                                ${{ product.price }}
                             </div>
-                        </div>
-                        <div class="col-xl-7 col-lg-6 col-md-6 d-none d-md-block">
-                            <div class="tpslidertwo__img p-relative text-end">
-                                <img src="{% static 'assets/img/pexels.jpg' %}" style="height:770px; width:750px;"  alt="">
-                                
-                            </div>
-                        </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- slider-area-end -->
+                    {% endfor %}
+                </div><!-- End .owl-carousel -->
+            </div><!-- End .tab-pane -->
 
-<!-- services-area-start -->
-<section class="services-area pt-70 pb-70">
-    <div class="container">
-       <div class="row services-gx-item">
-          <div class="col-lg-3 col-sm-6">
-             <div class="tpservicesitem d-flex align-items-center mb-30">
-                <div class="tpservicesitem__icon mr-20">
-                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="36" viewBox="0 0 34 36">
-                      <image id="services-icon-01.svg" width="34" height="36" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAkCAYAAADsHujfAAADCklEQVRYhcWYXYiMURjHf2bFcqEpqV0udsaN3RuLUoR2lZDsbiS0tt0ttLlxw14gX+GCC3spF9gbQpI2bKJ8la+yvrM+2pFIbbTLBYqsDv9Tx9v7vvPOzjvjX2/TzDznnN85z3Oe85yXPNUA3ACeAM35dparEkAL8BjoAVYCrUBGT0uhAcYAmzWYWYV6HxsD9MgBGhEnQBJoBwacJ9us6wVrgNYD4/MF2KXBrwI1+r0ReB7RDabNZdluBcqHCzAEPABSPnbLHTcYl4wM6XMacBp4C+wDKsIAyoC9AjgFTBfAUeAHcCwAaBFwTUAbgFEhY6TUzzfgiBdoInAA+AJ0AumADvYDHwU5xcdmKnDWccOkCEBDmuifCfboh7UhDd0OtgNvgEvAXB+bSuA40K8J+q2iVavGfmm+9ykmzEzuAqsjAE0A2tTGBPISH5u0Zv0ZOOwBWqx2/Rq7z4KktedtYnodMTGVOG0eAk0+NtYNP/V5D+gF1mnMtBfEu2S9OWZKC9TnaVOiIM4IptFn5QJBrFbw1112i46OANTi5Bmz7J/kBpPYvvvYRwKxWuBkyo3AuBDbpD6bFIg2EabiALGaCXQBm/Q94QGwidCcymMFYhUriKtK5Z4OB+A8MEc2OYGEpeVsMsFcDZxQQM4Dng63s3xAUMzcAQYjQFSH/ZkI+zMmmWC9ouNjy/8EOQfcVCx0BBnl65owfdXuua40Hyp3RWbrDIhTXVEg8MkDh1TsLCvgSmUF6Xb8eFA7wu8QKziIKeGe6WAyQLuBVUBpMUDcYN0GvAL2CKBOW64o8u6aTj05VdtxKCFX7PBUUB+KNH65xh40IAuBXzr8gir1uFWlovmF6pW6hAphUzhPFtB9AVUVAGAWcBK4pTtOha6x791dY4FmAO+Ai8AZNc5Xtbrxdat6SzulQ1aV6X6SUSc1AQ1M3tkZ8F+tysQB2SQD7CKpVPVmRneghgggLkC7iqRY5b4HafYBWSr/Z3TvKfjp7gLdBi5oB5iXN+bFTTHKi3+0RoekccP8YfcC/AZJgs7K1UbdbAAAAABJRU5ErkJggg=="/>
-                    </svg>                         
-                </div>
-                <div class="tpservicesitem__content">
-                   <h4 class="tpservicesitem__title">Free shipping</h4>
-                   <p>Free shipping on orders over.</p>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-             <div class="tpservicesitem d-flex align-items-center mb-30">
-                <div class="tpservicesitem__icon mr-20">
-                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="27" viewBox="0 0 36 27">
-                      <image id="services-icon-02.svg" width="36" height="27" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAbCAYAAAAULC3gAAACyUlEQVRIic3XX8iecxgH8M+7XvmzMMIawxzYTpSVImp70aRETSJENrYDbQcjmqTt3YHRIssWO/InHCAkITmgsMbKWi29Q2wl2QEbxdQwXfV96u3Z+zzP/c692bfunrvffV3X/X1+13V9r989hKl4ENdgivbwJ7ZjPXY1jTqMJzAXj2Nfi4SOx234AtdiW1PH3zCrRSLduBk/Y1pTh4NHkEwHG/FsE8OhEHohv/djES5umdAMLMB8bO5nOJzfMRzAr/gm+W8TYymNR3FVP8PODg39xxfOwa0DbDZhC5bj3V5Gw70eTBJF5iZ82sOt0vU3lqY8ZuOPXq9oo6hX46k+zy/FXpyBj6J7E6JNIeyH0qJXsAoP4OFeMnC0CBUewR3JyGtY+38T2pcx8mTIlYpf0W3UVlGLfi1sYDcrXbk+aRzFi52HbbX9OZjZ0La67Uv8gzuxDNPxXCeNR2N0DMLl2JpdOyYIiST8ogGhk3FiCy+sc9dJA2wO9iN0D37A79ifeXTXYRCpbtqROKXO3+LuyRJalyE7kkFb3Xg9vo+4NcVofEayO9U8V2dttB+h7qsczo2q1gngR6xJy9YIuLIBodnZ4fJZEb+9OaGenXo55N2dth9fI69m3pSQ1Yy6Li36HlbiEpyA+wYQ2hDh/Tx/ZmFS/3rm3mmZcYvH+ewfSl73jFusGXMLbs85+Omsr85Ba0tOfz8NIDQtO3NZ4q/J+r0h8gbe6foAOL9q48J0UgfPROR2x1FqaB5exqn4AA8NIPRYSH2NG8atz09JnIWPQ7CDvyYKtCQpOxM7c+2K83EJduMAMlJnX4XU1viN5X56iDbq2tKLz/BSgo2kbur+TbzfJEjwId7CeV1xNqaLG+N0PJ+ueDtX3VfKTplEnCqFilMaVPVSx46KUw1SnXYIBg3VmsoXRUMqjdXGh4ML8jFaf+YTfDdhEPwLg8uoL4tFMQIAAAAASUVORK5CYII="/>
-                    </svg>                         
-                </div>
-                <div class="tpservicesitem__content">
-                   <h4 class="tpservicesitem__title">Free Returns</h4>
-                   <p>30-days free return policy</p>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-             <div class="tpservicesitem d-flex align-items-center mb-30">
-                <div class="tpservicesitem__icon mr-20">
-                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
-                      <image id="services-icon-03.svg" width="36" height="36" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAACnklEQVRYhcWYTYhOYRTHf02KrDTEAtOgfJQwFjK+S7FSIjaGmWGaSamZiAXiXbHwbWNB2IiShSxYYAwhSiSRSb1D2dGrLBSa0dG5ddyee+97733u9a/prfOce57fPfecc587FKiNwGvgJ/AMmFfkZknqBEaA28BO4B1QA1r+B8xWhTlpbKOBJ8C3sqECmHOOtXEK9aWsxycwv4BLMT4C9bIMqPWaGQszEbgFfNXf5hBUoTXVBxwO2a4DH4EKUAX6zdoY4GkRNbXE3HlYn4CDauvQDDYaH8nUfYXy9vieA3sj1vo1M23AK+C9w8dbTTXpb0OMj2RuUDMzBMyJ8LNQ87PAbNdNWuv0HxVh3xIqdIG+kRYmmDMn0l4YUkXjbDbma8DjNEG2xQy9LDC2K5s1QxfrDeIaepO0S9o8wFT1L6pj/1GnY+gJzFstxBllwojTD+CMI4ikeFqZMKINGmiWsc0FBjzCTK4XRrRGg61M8JO2XQVMSQlTd2asXujFsyPWd+iLUjb+DexR+4IiYERTgQ8RQXbrpqeARcAxYBgYb6C8wsRBHVKYIyE/sa0OXR/ADPqACSSF/V0DX3HAYGrGbuo1M4FWaJsHL8o3wP4IGFfNiL3XF8xarYtHwNIInySYcNYyq9Gc9qLe2kmt/Rm46wNG1JFwdxXTZS6YZbre7gvoTugsbNWim9V083V62B8yBXxAv1zH+gISmKsx6wt14wFTKw9MRqsJn0WpJBN4RIdfPZoJTDd+yyNmUib1aLDzOWJc1gx5gRlOc3pzqE9vqDsvTJfCZH3uE3R6C8zZvDDtGR5Tg34sHgcemq7blxemxzFP4rQJuGmOHTX9aujWs1EudaWsmV2mvY8Ci/MChCX/FLiQwv8ecNo3xF8BfwD4tdQxtW0vigAAAABJRU5ErkJggg=="/>
-                    </svg>                         
-                </div>
-                <div class="tpservicesitem__content">
-                   <h4 class="tpservicesitem__title">Secured Payments</h4>
-                   <p>We accept all major credit cards</p>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-             <div class="tpservicesitem d-flex align-items-center mb-30">
-                <div class="tpservicesitem__icon mr-20">
-                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
-                      <image id="services-icon-04.svg" width="36" height="36" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAADW0lEQVRYhc2YaYhNYRjHfyZLJkWMCVmubYoppSHLWIYIY42GTGQwKREfqLEPTVK+SLKlGEzKB5n5wAfRUGQpy5SyjRl7sitLiRk94390Ou4999w7d67519u957zv87z/53m3/3lbEDs6ANOB4cAgoDeQBrQE3gEPgNfAOeA88DRMDyGgANjqrYiF0ASgCBgJpAK3gCqgVgTqgM7qbCAwWnbXgX3AMZcvI3Mkxv7/YihQCdTrd7WyFA0dgXygXLZGPM9FqD5WIsa+GPgBXAbGxRONYBk7KRKHgHWxEmoDnJbRRs2PRGAp8F5+AxOy4bgEfATGJ4CE+XuoCW/lqx+hcJHvBbKAUcCdBBD6xJ+h7+p5/yqI8VYxzwvQtslhy/WnomkWKNfSTNQEbhQGa6jmN5fs2K5Z3Qx4NKAd8E17RCIxJd7hn6zh6pdAMtnyOSZWQ4tgGPDSZ8jW6WC1A3QT8MRVNwvIBZZ5bAqB+0BbnX9ufAfm6PcfpACZwKMIZGwL2C4y2XLeSnW2TexShr1BTgKOAzVauU4QOcDnSGQcXNGBFw7XgDK9z/IMQ5men3ns5ul9X8/7IyKX5kcGCaptEerGKhOGzeqoDzBX/6vDEDoD3PC8a6/2S3x4hJzEPAZKopBeJYc7gR6K9CywR4TS1a6LhNoij32O7DN9+virka4CBwOQceTmWtdp7ZR7qivUc7rHR77ep/j0Y9mrT9GQ9YzQaAOwWyvmA7BSc2GIyn5JiolqvwKoAN54/LRR5up8CPV3AtsCvI3QqEzywSm22ga46hdq6NDcsizMDOMnJ4CUqdBHQUN05qh7FINoKNF+Fu/hbIJwPVJ09rCmkYRyNd/iwVglZZhje9hnc0wGSoG77n5Gi+G0/0AmpL4LvBWVWk2pSSZUGkkYGtMvwI4kklmu7CyI1KBIDaYmgUxI283RaA1PadVlNDGZWpWoU6Q1cFEyIacJyGS4yIQCtG9AB32L1wU4eGPBYmXfyPSKx0Gx5lSN7oTixQjXDYp9GXdqTFR2c3FBzqokLYKk2jTQbJ1PZntbu7kvYrkwMqlq8mKGZKztrHZpZSLNDt1fitzmiBXnwsqucg4AJ4J0Es8NlklQ2xZMY5tksCu9bvJlVy3PJSNuasW+COwZ+A1hwdFJsNdDBgAAAABJRU5ErkJggg=="/>
-                    </svg>                         
-                </div>
-                <div class="tpservicesitem__content">
-                   <h4 class="tpservicesitem__title">Customer Service</h4>
-                   <p>Top notch customer setvice</p>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
- </section>
- <!-- services-area-end -->
+            <!-- Men's Clothing Section -->
+            <div class="tab-pane p-0 fade" id="featured-men-tab" role="tabpanel" aria-labelledby="featured-men-link">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                    data-owl-options='{
+                        "nav": false, 
+                        "dots": true,
+                        "margin": 20,
+                        "loop": false,
+                        "responsive": {
+                            "0": {
+                                "items":2
+                            },
+                            "480": {
+                                "items":2
+                            },
+                            "768": {
+                                "items":3
+                            },
+                            "992": {
+                                "items":4
+                            },
+                            "1200": {
+                                "items":5,
+                                "nav": true
+                            }
+                        }
+                    }'>
+                    {% for product in popular_product %}
+                    <div class="product product-7 text-center">
+                        <figure class="product-media">
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                            </a>
+                        </figure>
+                        <div class="product-body">
+                            <h3 class="product-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>
+                            <div class="product-price">
+                                ${{ product.price }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div><!-- End .owl-carousel -->
+            </div><!-- End .tab-pane -->
+        </div><!-- End .tab-content -->
+    </div><!-- End .container-fluid -->
+</div><!-- End .bg-light-2 -->
 
-<!-- product-area-start -->
-<section class="product-area pb-65">
-    <div class="container">
-       <div class="row">
-          <div class="col-lg-4 col-md-4">
-             <div class="tpsection mb-40">
-                <h4 class="tpsection__title">Products</h4>
-             </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-             <div class="tpproductnav tpnavbar">
-                <nav>
-                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                      <button class="nav-link active" id="nav-all-tab" data-bs-toggle="tab"
-                         data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all"
-                         aria-selected="true">All</button>
-                      <button class="nav-link" id="nav-popular-tab" data-bs-toggle="tab"
-                         data-bs-target="#nav-popular" type="button" role="tab" aria-controls="nav-popular"
-                         aria-selected="false">Popular</button>
-                      <button class="nav-link" id="nav-sale-tab" data-bs-toggle="tab" data-bs-target="#nav-sale"
-                         type="button" role="tab" aria-controls="nav-sale" aria-selected="false">Featured</button>
-                   </div>
-                </nav>
-             </div>
-          </div>
-          <div class="col-lg-4 col-md-2">
-             <div class="tpproductall">
-                <a href="{% url 'products' %}">View All<i class="far fa-long-arrow-right"></i></a>
-             </div>
-          </div>
-       </div>
-       <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
-            <div
-                class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 tpproduct">
-                {% for all_product in all_product %}
-                <div class="col">
-                   <div class="tpproduct tpproductitem mb-15 p-relative">
-                      <div class="tpproduct__thumb">
-                         <div class="tpproduct__thumbitem p-relative">
-                            <a href="{% url 'product_detail' all_product.id %}">
-                               <img src="{{all_product.image.url}}" alt="product-thumb">
-                            </a>
-                            <div class="tpproduct__thumb-bg">
-                               <div class="tpproductactionbg">
-                                  {% comment %} <a href="cart.html"><i class="fal fa-shopping-basket"></i></a> {% endcomment %}
-                                  {% comment %} <a href="#"><i class="fal fa-exchange"></i></a> {% endcomment %}
-                                  <a href="{% url 'product_detail' all_product.id %}"><i class="fal fa-eye"></i></a>
-                                  {% comment %} <a href="wishlist.html"><i class="fal fa-heart"></i></a> {% endcomment %}
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="tpproduct__content-area">
-                         <h3 class="tpproduct__title mb-5"><a href="{% url 'product_detail' all_product.id %}">{{all_product.name}}</a></h3>
-                         <div class="tpproduct__priceinfo p-relative">
-                            <div class="tpproduct__ammount">
-                               <span>${{all_product.price}}</span>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="tpproduct__ratingarea">
-                         <div class="d-flex align-items-center justify-content-between">
-                            <div class="tpproductdot">
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' all_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg"></span>
-                                     <span class="tpproductdot__termshape-border"></span>
-                                  </div>
-                               </a>
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' all_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg red-product-bg"></span>
-                                     <span class="tpproductdot__termshape-border red-product-border"></span>
-                                  </div>
-                               </a>
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' all_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg orange-product-bg"></span>
-                                     <span class="tpproductdot__termshape-border orange-product-border"></span>
-                                  </div>
-                               </a>
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' all_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg purple-product-bg"></span>
-                                     <span class="tpproductdot__termshape-border purple-product-border"></span>
-                                  </div>
-                               </a>
-                            </div>
-                            <div class="tpproduct__rating">
-                               <ul>
-                                  <li>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="far fa-star"></i></a>
-                                  </li>
-                               </ul>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-                {% endfor %}
-            </div>
-          </div>
-          <div class="tab-pane fade" id="nav-popular" role="tabpanel" aria-labelledby="nav-popular-tab">
-             <div
-                class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 tpproduct">
-                {% for popular_product in popular_product %}
-                <div class="col">
-                   <div class="tpproduct tpproductitem mb-15 p-relative">
-                      <div class="tpproduct__thumb">
-                         <div class="tpproduct__thumbitem p-relative">
-                            <a href="{% url 'product_detail' popular_product.id %}">
-                               <img src="{{popular_product.image.url}}" alt="product-thumb">
-                               {% comment %} <img class="thumbitem-secondary" src="assets/img/product/home-two/product-34.jpg" alt="product-thumb"> {% endcomment %}
-                            </a>
-                            <div class="tpproduct__thumb-bg">
-                               <div class="tpproductactionbg">
-                                  {% comment %} <a href="cart.html"><i class="fal fa-shopping-basket"></i></a> {% endcomment %}
-                                  {% comment %} <a href="#"><i class="fal fa-exchange"></i></a> {% endcomment %}
-                                  <a href="{% url 'product_detail' popular_product.id %}"><i class="fal fa-eye"></i></a>
-                                  {% comment %} <a href="wishlist.html"><i class="fal fa-heart"></i></a> {% endcomment %}
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="tpproduct__content-area">
-                         <h3 class="tpproduct__title mb-5"><a href="{% url 'product_detail' popular_product.id %}">{{popular_product.name}}</a></h3>
-                         <div class="tpproduct__priceinfo p-relative">
-                            <div class="tpproduct__ammount">
-                               <span>${{popular_product.price}}</span>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="tpproduct__ratingarea">
-                         <div class="d-flex align-items-center justify-content-between">
-                            <div class="tpproductdot">
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' popular_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg"></span>
-                                     <span class="tpproductdot__termshape-border"></span>
-                                  </div>
-                               </a>
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' popular_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg red-product-bg"></span>
-                                     <span class="tpproductdot__termshape-border red-product-border"></span>
-                                  </div>
-                               </a>
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' popular_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg orange-product-bg"></span>
-                                     <span class="tpproductdot__termshape-border orange-product-border"></span>
-                                  </div>
-                               </a>
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' popular_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg purple-product-bg"></span>
-                                     <span class="tpproductdot__termshape-border purple-product-border"></span>
-                                  </div>
-                               </a>
-                            </div>
-                            <div class="tpproduct__rating">
-                               <ul>
-                                  <li>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="far fa-star"></i></a>
-                                  </li>
-                               </ul>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-                {% endfor %}
-             </div>
-          </div>
-          <div class="tab-pane fade" id="nav-sale" role="tabpanel" aria-labelledby="nav-sale-tab">
-             <div
-                class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 tpproduct">
-                {% for featured_product in featured_product %}
-                <div class="col">
-                   <div class="tpproduct tpproductitem mb-15 p-relative">
-                      <div class="tpproduct__thumb">
-                         <div class="tpproduct__thumbitem p-relative">
-                            <a href="{% url 'product_detail' featured_product.id %}">
-                               <img src="{{featured_product.image.url}}" alt="product-thumb">
-                               {% comment %} <img class="thumbitem-secondary" src="assets/img/product/home-two/product-36.jpg" alt="product-thumb"> {% endcomment %}
-                            </a>
-                            <div class="tpproduct__thumb-bg">
-                               <div class="tpproductactionbg">
-                                  {% comment %} <a href="cart.html"><i class="fal fa-shopping-basket"></i></a> {% endcomment %}
-                                  {% comment %} <a href="#"><i class="fal fa-exchange"></i></a> {% endcomment %}
-                                  <a href="{% url 'product_detail' featured_product.id %}"><i class="fal fa-eye"></i></a>
-                                  {% comment %} <a href="wishlist.html"><i class="fal fa-heart"></i></a> {% endcomment %}
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="tpproduct__content-area">
-                         <h3 class="tpproduct__title mb-5"><a href="{% url 'product_detail' featured_product.id %}">{{featured_product.name}}</a></h3>
-                         <div class="tpproduct__priceinfo p-relative">
-                            <div class="tpproduct__ammount">
-                               <span>${{featured_product.price}}</span>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="tpproduct__ratingarea">
-                         <div class="d-flex align-items-center justify-content-between">
-                            <div class="tpproductdot">
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' featured_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg"></span>
-                                     <span class="tpproductdot__termshape-border"></span>
-                                  </div>
-                               </a>
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' featured_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg red-product-bg"></span>
-                                     <span class="tpproductdot__termshape-border red-product-border"></span>
-                                  </div>
-                               </a>
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' featured_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg orange-product-bg"></span>
-                                     <span class="tpproductdot__termshape-border orange-product-border"></span>
-                                  </div>
-                               </a>
-                               <a class="tpproductdot__variationitem" href="{% url 'product_detail' featured_product.id %}">
-                                  <div class="tpproductdot__termshape">
-                                     <span class="tpproductdot__termshape-bg purple-product-bg"></span>
-                                     <span class="tpproductdot__termshape-border purple-product-border"></span>
-                                  </div>
-                               </a>
-                            </div>
-                            <div class="tpproduct__rating">
-                               <ul>
-                                  <li>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="fas fa-star"></i></a>
-                                     <a href="#"><i class="far fa-star"></i></a>
-                                  </li>
-                               </ul>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-                {% endfor %}
-             </div>
-          </div>
-       </div>
-    </div>
-</section>
-<!-- product-area-end -->
+   <div class="mb-6"></div><!-- End .mb-6 -->
+
+
+   <div class="page-content pb-0">
+         <div class="heading heading-center mb-3">
+               <h2 class="title">ABOUT US</h2><!-- End .title -->
+         </div><!-- End .heading -->
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-6 mb-3 mb-lg-0">
+                     <h2 class="title">Our Vision</h2><!-- End .title -->
+                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. </p>
+               </div><!-- End .col-lg-6 -->
+               
+               <div class="col-lg-6">
+                     <h2 class="title">Our Mission</h2><!-- End .title -->
+                     <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. <br>Praesent elementum hendrerit tortor. Sed semper lorem at felis. </p>
+               </div><!-- End .col-lg-6 -->
+            </div><!-- End .row -->
+
+            <div class="mb-5"></div><!-- End .mb-4 -->
+         </div><!-- End .container -->
+
+         
+
+         <div class="mb-2"></div><!-- End .mb-2 -->
+
+   </div><!-- End .page-content -->
+
+
+   <div class="bg-light-2 pt-7 pb-6 testimonials">
+         <div class="container">
+            <h2 class="title text-center mb-2">Our Customers Say</h2><!-- End .title text-center -->
+            <div class="owl-carousel owl-simple owl-testimonials" data-toggle="owl" 
+               data-owl-options='{
+                     "nav": false, 
+                     "dots": true,
+                     "margin": 20,
+                     "loop": false,
+                     "responsive": {
+                        "1200": {
+                           "nav": true
+                        }
+                     }
+               }'>
+               <blockquote class="testimonial testimonial-icon text-center">
+                     <p class="lead">“Really great store”</p><!-- End .lead -->
+                     <p>“ Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra<br>a, ultricies in, diam. Sed arcu. ”</p>
+
+                     <cite>
+                        Charly Smith,
+                        <span>Customer</span>
+                     </cite>
+               </blockquote><!-- End .testimonial -->
+
+               <blockquote class="testimonial testimonial-icon text-center">
+                     <p class="lead">“Friendly Support”</p><!-- End .lead -->
+                     <p>“ Impedit, ratione sequi, sunt incidunt magnam et. Delectus obcaecati optio eius error libero perferendis nesciunt atque dolores magni recusandae! Doloremque quidem error eum quis similique doloribus natus qui ut ipsum.”</p>
+
+                     <cite>
+                        Damon Stone
+                        <span>Customer</span>
+                     </cite>
+               </blockquote><!-- End .testimonial -->
+
+               <blockquote class="testimonial testimonial-icon text-center">
+                     <p class="lead">“Free Shipping”</p><!-- End .lead -->
+                     <p>“ Molestias animi illo natus ut quod neque ad accusamus praesentium fuga! Dolores odio alias sapiente odit delectus quasi, explicabo a, modi voluptatibus. Perferendis perspiciatis, voluptate, distinctio earum veritatis animi tempora eget blandit nunc tortor mollis ”</p>
+
+                     <cite>
+                        John Smith
+                        <span>Customer</span>
+                     </cite>
+               </blockquote><!-- End .testimonial -->
+            </div><!-- End .testimonials-slider owl-carousel -->
+         </div><!-- End .container -->
+   </div><!-- End .bg-light pt-5 pb-5 -->
+
+   
+</main>
 
 {% endblock content %}

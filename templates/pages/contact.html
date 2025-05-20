@@ -3,104 +3,169 @@
 {% block title %} Contact {% endblock title %}
 
 {% block content %}
-<!-- breadcrumb-area -->
-<section class="breadcrumb__area pt-60 pb-60 tp-breadcrumb__bg" data-background="{% static 'assets/img/pexels.jpg' %}">
+<main class="main">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact us</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-7 col-lg-12 col-md-12 col-12">
-                <div class="tp-breadcrumb">
-                <div class="tp-breadcrumb__link mb-10">
-                    <span class="breadcrumb-item-active"><a href="index.html">Home</a></span>
-                    <span>Contact</span>
-                </div>
-                <h2 class="tp-breadcrumb__title">Get In Touch</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    </section>
-    <!-- breadcrumb-area-end -->
-        
-    <!-- contact-area-start -->
-    <section class="contact-area pt-80 pb-80">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-12">
-                <div class="tpcontact__right mb-40">
-                <div class="tpcontact__shop mb-30">
-                    <h4 class="tpshop__title mb-25">Get In Touch</h4>
-                    <div class="tpshop__info">
-                        <ul>
-                            <li><i class="fal fa-map-marker-alt"></i> <a href="#">24/26 Strait Bargate, Boston, PE21,  United Kingdom</a></li>
-                            <li>
-                            <i class="fal fa-phone"></i>
-                            <a href="tel:0123456789">+098 (905) 786 897 8</a>
-                            <a href="tel:0123456789">6 - 146 - 389 - 5748</a>
-                            </li>
-                            <li>
-                            <i class="fal fa-clock"></i>
-                            <span>Store Hours:</span>
-                            <span>10 am - 10 pm EST, 7 days a week</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="tpcontact__support">
-                    <a href="tel:0123456">Get Support On Call <i class="fal fa-headphones"></i></a>
-                    <a target="_blank" href="https://www.google.com/maps/@36.963672,-119.2249843,7.17z">Get Direction <i class="fal fa-map-marker-alt"></i></a>
-                </div>
-                </div>
-            </div>
-            <div class="col-lg-8 col-12">
-                <div class="tpcontact__form">
-                <div class="tpcontact__info mb-35">
-                    <h4 class="tpcontact__title">Make Custom Request</h4>
-                    <p>Must-have pieces selected every month want style Ideas and Treats?</p>
-                </div>
-                <form action="" id="contact-form" method="POST">
-                    {% csrf_token %}
-                    <div class="row"> 
-                        <div class="col-lg-6">
-                            <div class="tpcontact__input mb-20">
-                            <input name="full_name" type="text" placeholder="Full name" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="tpcontact__input mb-20">
-                            <input name="email" type="email" placeholder="Email address" required>
-                            </div>
-                        </div>
-                        {% comment %} <div class="col-lg-6">
-                            <div class="tpcontact__input mb-20">
-                            <input name="number" type="text" placeholder="Phone number" required>
-                            </div>
-                        </div> {% endcomment %}
-                        <div class="col-lg-6">
-                            <div class="tpcontact__input mb-20">
-                            <input name="subject" type="text" placeholder="Subject" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="tpcontact__input mb-30">
-                            <textarea name="message" placeholder="Enter message" required></textarea>
-                            </div>
-                        </div>                      
-                    </div>
-                    <div class="tpcontact__submit">
-                        <button class="tp-btn tp-color-btn tp-wish-cart submit">Submit <i class="fal fa-long-arrow-right"></i></button>
-                    </div>
-                </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- contact-area-end -->
+        <div class="page-header page-header-big text-center" style="background-image: url('{% static "assets/images/contact-header-bg.jpg" %}')">
+            <h1 class="page-title text-white">Contact us<span class="text-white">keep in touch with us</span></h1>
+        </div><!-- End .page-header -->
+    </div><!-- End .container -->
 
-<!-- map-area-start -->
-<div class="map-area">
-    <div class="tpshop__location-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193313.696093143!2d-74.25983952323838!3d40.794422695521675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1663062642075!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-</div>
+    <div class="page-content pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-2 mb-lg-0">
+                    <h2 class="title mb-1">Contact Information</h2><!-- End .title mb-2 -->
+                    <p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="contact-info">
+                                <h3>The Office</h3>
+
+                                <ul class="contact-list">
+                                    <li>
+                                        <i class="icon-map-marker"></i>
+                                        70 Washington Square South New York, NY 10012, United States
+                                    </li>
+                                    <li>
+                                        <i class="icon-phone"></i>
+                                        <a href="tel:#">+92 423 567</a>
+                                    </li>
+                                    <li>
+                                        <i class="icon-envelope"></i>
+                                        <a href="mailto:#">info@Molla.com</a>
+                                    </li>
+                                </ul><!-- End .contact-list -->
+                            </div><!-- End .contact-info -->
+                        </div><!-- End .col-sm-7 -->
+
+                        <div class="col-sm-5">
+                            <div class="contact-info">
+                                <h3>The Office</h3>
+
+                                <ul class="contact-list">
+                                    <li>
+                                        <i class="icon-clock-o"></i>
+                                        <span class="text-dark">Monday-Saturday</span> <br>11am-7pm ET
+                                    </li>
+                                    <li>
+                                        <i class="icon-calendar"></i>
+                                        <span class="text-dark">Sunday</span> <br>11am-6pm ET
+                                    </li>
+                                </ul><!-- End .contact-list -->
+                            </div><!-- End .contact-info -->
+                        </div><!-- End .col-sm-5 -->
+                    </div><!-- End .row -->
+                </div><!-- End .col-lg-6 -->
+                <div class="col-lg-6">
+                    <h2 class="title mb-1">Got Any Questions?</h2><!-- End .title mb-2 -->
+                    <p class="mb-2">Use the form below to get in touch with the sales team</p>
+
+                    <form action="#" class="contact-form mb-3">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="cname" class="sr-only">Name</label>
+                                <input type="text" class="form-control" id="cname" placeholder="Name *" required>
+                            </div><!-- End .col-sm-6 -->
+
+                            <div class="col-sm-6">
+                                <label for="cemail" class="sr-only">Email</label>
+                                <input type="email" class="form-control" id="cemail" placeholder="Email *" required>
+                            </div><!-- End .col-sm-6 -->
+                        </div><!-- End .row -->
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="cphone" class="sr-only">Phone</label>
+                                <input type="tel" class="form-control" id="cphone" placeholder="Phone">
+                            </div><!-- End .col-sm-6 -->
+
+                            <div class="col-sm-6">
+                                <label for="csubject" class="sr-only">Subject</label>
+                                <input type="text" class="form-control" id="csubject" placeholder="Subject">
+                            </div><!-- End .col-sm-6 -->
+                        </div><!-- End .row -->
+
+                        <label for="cmessage" class="sr-only">Message</label>
+                        <textarea class="form-control" cols="30" rows="4" id="cmessage" required placeholder="Message *"></textarea>
+
+                        <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
+                            <span>SUBMIT</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </button>
+                    </form><!-- End .contact-form -->
+                </div><!-- End .col-lg-6 -->
+            </div><!-- End .row -->
+
+            <hr class="mt-4 mb-5">
+
+            <div class="stores mb-4 mb-lg-5">
+                <h2 class="title text-center mb-3">Our Stores</h2><!-- End .title text-center mb-2 -->
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="store">
+                            <div class="row">
+                                <div class="col-sm-5 col-xl-6">
+                                    <figure class="store-media mb-2 mb-lg-0">
+                                        <img src="assets/images/stores/img-1.jpg" alt="image">
+                                    </figure><!-- End .store-media -->
+                                </div><!-- End .col-xl-6 -->
+                                <div class="col-sm-7 col-xl-6">
+                                    <div class="store-content">
+                                        <h3 class="store-title">Wall Street Plaza</h3><!-- End .store-title -->
+                                        <address>88 Pine St, New York, NY 10005, USA</address>
+                                        <div><a href="tel:#">+1 987-876-6543</a></div>
+
+                                        <h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
+                                        <div>Monday - Saturday 11am to 7pm</div>
+                                        <div>Sunday 11am to 6pm</div>
+
+                                        <a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
+                                    </div><!-- End .store-content -->
+                                </div><!-- End .col-xl-6 -->
+                            </div><!-- End .row -->
+                        </div><!-- End .store -->
+                    </div><!-- End .col-lg-6 -->
+
+                    <div class="col-lg-6">
+                        <div class="store">
+                            <div class="row">
+                                <div class="col-sm-5 col-xl-6">
+                                    <figure class="store-media mb-2 mb-lg-0">
+                                        <img src="assets/images/stores/img-2.jpg" alt="image">
+                                    </figure><!-- End .store-media -->
+                                </div><!-- End .col-xl-6 -->
+
+                                <div class="col-sm-7 col-xl-6">
+                                    <div class="store-content">
+                                        <h3 class="store-title">One New York Plaza</h3><!-- End .store-title -->
+                                        <address>88 Pine St, New York, NY 10005, USA</address>
+                                        <div><a href="tel:#">+1 987-876-6543</a></div>
+
+                                        <h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
+                                        <div>Monday - Friday 9am to 8pm</div>
+                                        <div>Saturday - 9am to 2pm</div>
+                                        <div>Sunday - Closed</div>
+
+                                        <a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
+                                    </div><!-- End .store-content -->
+                                </div><!-- End .col-xl-6 -->
+                            </div><!-- End .row -->
+                        </div><!-- End .store -->
+                    </div><!-- End .col-lg-6 -->
+                </div><!-- End .row -->
+            </div><!-- End .stores -->
+        </div><!-- End .container -->
+        <div id="map"></div><!-- End #map -->
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
 {% endblock content %}

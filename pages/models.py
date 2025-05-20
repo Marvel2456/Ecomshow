@@ -58,6 +58,7 @@ class Order(models.Model):
     customer_phone = models.CharField(max_length=20, blank=True, null=True)
     customer_notes = models.TextField(blank=True, null=True)
     total_cost = models.DecimalField(max_digits=10, decimal_places=2)
+    payment_method = models.CharField(max_length=20, blank=True, null=True)
     Order_Status = (
         ('Pending', 'Pending'),
         ('Processing', 'Processing'),
@@ -83,7 +84,8 @@ class OrderItem(models.Model):
 class WalletAdress(models.Model):
     id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=300, blank=True, null=True)
-    address = models.CharField(max_length=300, blank=True, null=True)
+    btc_address = models.CharField(max_length=500, blank=True, null=True)
+    eth_address = models.CharField(max_length=500, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):

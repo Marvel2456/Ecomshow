@@ -1,55 +1,43 @@
 {% load static %}
-<!doctype html>
-<html class="no-js" lang="zxx">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Hashminers | {% block title %} {% endblock title %} </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <meta name="csrf-token" content="{{ csrf_token }}">
-        <script>
-        document.body.addEventListener('htmx:configRequest', (event) => {
-            const token = document.querySelector('meta[name="csrf-token"]').content;
-            event.detail.headers['X-CSRFToken'] = token;
-        });
-        </script>
+<!DOCTYPE html>
+<html lang="en">
 
 
-        <!-- Place favicon.ico in the root directory -->
-        <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/logo/favicon.png' %}">
-
-        <!-- CSS here -->
-        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/spacing.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
-        <script src="https://unpkg.com/htmx.org@1.9.2"></script>
-
-    </head>
-    <body>
-
-        <!-- preloader -->
-        <div id="preloader">
-            <div class="preloader">
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <!-- preloader end  -->
-
-        <!-- Scroll-top -->
-        <button class="scroll-top scroll-to-target" data-target="html">
-            <i class="fas fa-angle-up"></i>
-        </button>
-        <!-- Scroll-top-end-->
+<!-- molla/index-7.html  22 Nov 2019 09:56:39 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hashminers</title>
+    <meta name="keywords" content="Hashminers">
+    <meta name="description" content="Hashminers">
+    <meta name="author" content="p-themes">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/images/icons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'assets/images/icons/site.html' %}">
+    <link rel="mask-icon" href="{% static 'assets/images/icons/safari-pinned-tab.svg' %}" color="#666666">
+    <link rel="shortcut icon" href="{% static 'assets/images/icons/favicon.ico' %}">
+    <meta name="apple-mobile-web-app-title" content="Hashminers">
+    <meta name="application-name" content="Hashminers">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="{% static 'assets/images/icons/browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/magnific-popup/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/jquery.countdown.css' %}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/skins/skin-demo-7.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/demos/demo-7.css' %}">
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="page-wrapper">
 
         {% include 'partials/navbar.html' %}
 
@@ -60,54 +48,56 @@
         </main>
         {% endblock content %}
 
-        {% include 'partials/footer.html' %}
-
-
-
-
-        <!-- JS here -->
-        <script src="{% static 'assets/js/jquery.js' %}"></script>
-        <script src="{% static 'assets/js/waypoints.js' %}"></script>
-        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
-        <script src="{% static 'assets/js/swiper-bundle.js' %}"></script>
-        <script src="{% static 'assets/js/slick.js' %}"></script>
-        <script src="{% static 'assets/js/magnific-popup.js' %}"></script>
-        <script src="{% static 'assets/js/nice-select.js' %}"></script>
-        <script src="{% static 'assets/js/counterup.js' %}"></script>
-        <script src="{% static 'assets/js/wow.js' %}"></script>
-        <script src="{% static 'assets/js/isotope-pkgd.js' %}"></script>
-        <script src="{% static 'assets/js/imagesloaded-pkgd.js' %}"></script>
-        <script src="{% static 'assets/js/countdown.js' %}"></script>
-        <script src="{% static 'assets/js/ajax-form.js' %}"></script>
-        <script src="{% static 'assets/js/meanmenu.js' %}"></script>
-        <script src="{% static 'assets/js/jquery.knob.js' %}"></script>
-        <script src="{% static 'assets/js/main.js' %}"></script>
-        <script src="{% static 'assets/js/modal.js' %}"></script>
         
-        <script>
-            document.body.addEventListener('htmx:afterOnLoad', function(event) {
-              const response = event.detail.xhr.response;
-          
-              try {
-                const data = JSON.parse(response);
-          
-                // Update product row
-                const productId = event.target.dataset.productId;
-                const row = document.getElementById(`cart-row-${productId}`);
-                if (row) {
-                  row.outerHTML = data.row_html;
-                }
-          
-                // Update cart count
-                const cartCount = document.getElementById('cart-count');
-                if (cartCount) {
-                  cartCount.outerHTML = data.cart_count_html;
-                }
-              } catch (e) {
-                // Not a JSON response? Ignore.
+
+        {% include 'partials/footer.html' %}
+    </div><!-- End .page-wrapper --> 
+
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+    
+    {% include 'partials/mobile.html' %}
+
+
+
+      <!-- Plugins JS File -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.hoverIntent.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/superfish.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap-input-spinner.js' %}"></script>
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.plugin.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script>
+    <!-- Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/demos/demo-7.js' %}"></script>
+
+      <script>
+          document.body.addEventListener('htmx:afterOnLoad', function(event) {
+            const response = event.detail.xhr.response;
+        
+            try {
+              const data = JSON.parse(response);
+        
+              // Update product row
+              const productId = event.target.dataset.productId;
+              const row = document.getElementById(`cart-row-${productId}`);
+              if (row) {
+                row.outerHTML = data.row_html;
               }
-            });
-        </script>
+        
+              // Update cart count
+              const cartCount = document.getElementById('cart-count');
+              if (cartCount) {
+                cartCount.outerHTML = data.cart_count_html;
+              }
+            } catch (e) {
+              // Not a JSON response? Ignore.
+            }
+          });
+      </script>
           
-    </body>
+  </body>
 </html>

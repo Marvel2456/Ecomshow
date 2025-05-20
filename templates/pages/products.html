@@ -3,185 +3,215 @@
 {% block title %} Product {% endblock title %}
 
 {% block content %}
-<!-- breadcrumb-area -->
-<section class="breadcrumb__area pt-60 pb-60 tp-breadcrumb__bg" data-background="{% static 'assets/img/pexels.jpg' %}">
-    <div class="container">
-       <div class="row align-items-center">
-          <div class="col-xl-7 col-lg-12 col-md-12 col-12">
-             <div class="tp-breadcrumb">
-                <div class="tp-breadcrumb__link mb-10">
-                   <span class="breadcrumb-item-active"><a href="{% url 'index' %}">Home</a></span>
-                   <span>Product</span>
-                </div>
-                <h2 class="tp-breadcrumb__title">Product</h2>
-             </div>
-          </div>
-       </div>
-    </div>
-</section>
-<!-- breadcrumb-area-end -->
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('{% static "assets/images/page-header-bg.jpg" %}')">
+        <div class="container">
+            <h1 class="page-title">Products<span>Shop</span></h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Products</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
 
-<!-- product-filter-area-start -->
-<div class="product-filter-area pt-65 pb-80">
-    <div class="container">
-        <div class="product-filter-content mb-40">
-            <div class="row align-items-center">
-                <div class="col-sm-6">
-                <div class="product-item-count">
-                    <span><b>112</b> Item On List</span>
-                </div>
-                </div>
-                <div class="col-sm-6">
-                <div class="product-navtabs d-flex justify-content-end align-items-center">
-                    <div class="tp-shop-selector">
-                        <select>
-                            <option>Show 12</option>
-                            <option>Show 14</option>
-                            <option>Show 08</option>
-                            <option>Show 20</option>
-                        </select>
-                    </div>
-                    <div class="tpproductnav tpnavbar product-filter-nav">
-                        <nav>
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <button class="nav-link" id="nav-all-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all"
-                                aria-selected="true"><i class="fal fa-list-ul"></i></button>
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="toolbox">
+                        
 
-                            <button class="nav-link active" id="nav-popular-tab" data-bs-toggle="tab" data-bs-target="#nav-popular" type="button" role="tab" aria-controls="nav-popular"
-                                aria-selected="false"><i class="fal fa-th"></i></button>
+                        <form method="get" id="sortby-form">
+                            {# Keep category filter if present #}
+                            {% if selected_category %}
+                                <input type="hidden" name="category" value="{{ selected_category }}">
+                            {% endif %}
+                            <div class="toolbox-sort">
+                                <label for="sortby">Sort by:</label>
+                                <div class="select-custom">
+                                    <select name="sortby" id="sortby" class="form-control" onchange="document.getElementById('sortby-form').submit();">
+                                        <option value="all" {% if selected_sortby == 'all' %}selected{% endif %}>All</option>
+                                        <option value="popularity" {% if selected_sortby == 'popularity' %}selected{% endif %}>Most Popular</option>
+                                        <option value="featured" {% if selected_sortby == 'featured' %}selected{% endif %}>Featured</option>
+                                        <option value="rating" {% if selected_sortby == 'rating' %}selected{% endif %}>Top Rated</option>
+                                        <option value="date" {% if selected_sortby == 'date' %}selected{% endif %}>Newest</option>
+                                    </select>
+                                </div>
                             </div>
-                        </nav>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row mb-50">
-            
-            <div class="col-lg-12">
-                <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-popular" role="tabpanel" aria-labelledby="nav-popular-tab">
-                    <div
-                        class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 tpproduct">
-                        {% for product in product %}
-                        <div class="col">
-                            <div class="tpproduct tpproductitem mb-15 p-relative">
-                            <div class="tpproduct__thumb">
-                                <div class="tpproduct__thumbitem p-relative">
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img src="{{product.image.url}}" alt="product-thumb">
-                                        {% comment %} <img class="thumbitem-secondary" src="assets/img/product/home-two/product-22.jpg" alt="product-thumb"> {% endcomment %}
+                        </form>
+                    </div><!-- End .toolbox -->
+
+                    <div class="products mb-3">
+                        <div class="row justify-content-center">
+                            {% for product in product %}
+                            <div class="col-6 col-md-4 col-lg-4">
+                                <div class="product product-7 text-center">
+                                    <figure class="product-media">
+                                        <a href="{% url 'product_detail' product.id %}">
+                                            <img src="{{product.image.url}}" alt="Product image" class="product-image">
+                                        </a>
+                                        <div class="product-action">
+                                            <form
+                                                method="POST"
+                                                hx-post="{% url 'add_to_cart' %}"
+                                                hx-target="#cart-count"
+                                                hx-swap="outerHTML"
+                                            >
+                                                {% csrf_token %}
+                                                <input type="hidden" name="product_id" value="{{ product.id }}">
+                                                <div class="product-action">
+                                                    
+                                                    <button type="submit" class="btn-product btn-cart w-100">
+                                                        <span>add to cart</span>
+                                                    </button>
+                                                </div><!-- End .product-action-vertical -->
+                                            </form>
+                                        </div><!-- End .product-action -->
+                                    </figure><!-- End .product-media -->
+
+                                    <div class="product-body">
+                                        <div class="product-cat">
+                                            <a href="#">{{product.category.name}}</a>
+                                        </div><!-- End .product-cat -->
+                                        <h3 class="product-title"><a href="product.html">{{product.name}}</a></h3><!-- End .product-title -->
+                                        <div class="product-price">
+                                            ${{product.price}}
+                                        </div><!-- End .product-price -->
+                                        
+                                    </div><!-- End .product-body -->
+                                </div><!-- End .product -->
+                            </div><!-- End .col-sm-6 col-lg-4 -->
+                            {% endfor %}
+                            
+                        </div><!-- End .row -->
+                    </div><!-- End .products -->
+
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            {# Previous Page #}
+                            {% if product.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link page-link-prev" href="?page={{ product.previous_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_sortby %}&sortby={{ selected_sortby }}{% endif %}" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                                    <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+                                </a>
+                            </li>
+                            {% endif %}
+
+                            {# Page Numbers #}
+                            {% for num in product.paginator.page_range %}
+                                {% if product.number == num %}
+                                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">{{ num }}</a></li>
+                                {% elif num > product.number|add:'-3' and num < product.number|add:'3' %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ num }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_sortby %}&sortby={{ selected_sortby }}{% endif %}">{{ num }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            <li class="page-item-total">of {{ product.paginator.num_pages }}</li>
+
+                            {# Next Page #}
+                            {% if product.has_next %}
+                            <li class="page-item">
+                                <a class="page-link page-link-next" href="?page={{ product.next_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_sortby %}&sortby={{ selected_sortby }}{% endif %}" aria-label="Next">
+                                    Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link page-link-next" href="#" aria-label="Next" tabindex="-1" aria-disabled="true">
+                                    Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div><!-- End .col-lg-9 -->
+                <aside class="col-lg-3 order-lg-first">
+                    <div class="sidebar sidebar-shop">
+                        <div class="widget widget-clean">
+                            <label>Filters:</label>
+                            <a href="#" class="sidebar-filter-clear">Clean All</a>
+                        </div><!-- End .widget widget-clean -->
+
+                        <!-- In your products.html sidebar/filter section -->
+                        <form method="get" id="category-filter-form">
+                            <div class="widget widget-collapsible">
+                                <h3 class="widget-title">
+                                    <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true" aria-controls="widget-1">
+                                        Category
                                     </a>
-                                    <div class="tpproduct__thumb-bg">
-                                        <div class="tpproductactionbg">
-                                        <a href="cart.html"><i class="fal fa-shopping-basket"></i></a>
-                                        <a href="#"><i class="fal fa-exchange"></i></a>
-                                        <a href="#"><i class="fal fa-eye"></i></a>
-                                        <a href="wishlist.html"><i class="fal fa-heart"></i></a>
+                                </h3>
+                                <div class="collapse show" id="widget-1">
+                                    <div class="widget-body">
+                                        <div class="filter-items filter-items-count">
+                                            <!-- All option -->
+                                            <div class="filter-item">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="radio" name="category" value="" class="custom-control-input"
+                                                        id="cat-all"
+                                                        onchange="document.getElementById('category-filter-form').submit();"
+                                                        {% if not selected_category %}checked{% endif %}>
+                                                    <label class="custom-control-label" for="cat-all">All</label>
+                                                </div>
+                                                <span class="item-count">{{ product.paginator.count }}</span>
+                                            </div>
+                                            <!-- Category options -->
+                                            {% for category in categories %}
+                                            <div class="filter-item">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="radio" name="category" value="{{ category.id }}"
+                                                        class="custom-control-input"
+                                                        id="cat-{{ forloop.counter }}"
+                                                        onchange="document.getElementById('category-filter-form').submit();"
+                                                        {% if category.id|stringformat:"s" == selected_category %}checked{% endif %}>
+                                                    <label class="custom-control-label" for="cat-{{ forloop.counter }}">{{ category.name }}</label>
+                                                </div>
+                                                <span class="item-count">{{ category.product_count }}</span>
+                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tpproduct__content-area">
-                                <h3 class="tpproduct__title mb-5"><a href="{% url 'product_detail' product.id %}">{{product.name}}</a></h3>
-                                <div class="tpproduct__priceinfo p-relative">
-                                    <div class="tpproduct__ammount">
-                                        <span>${{product.price}}</span>
+                        </form>
+
+                        <div class="widget widget-collapsible">
+                            <h3 class="widget-title">
+                                <a data-toggle="collapse" href="#widget-5" role="button" aria-expanded="true" aria-controls="widget-5">
+                                    Price
+                                </a>
+                            </h3>
+                            <div class="collapse show" id="widget-5">
+                                <div class="widget-body">
+                                    <div class="filter-price">
+                                        <div class="filter-price-text">
+                                            Price Range:
+                                            <span id="filter-price-range">
+                                                ${{ min_price|default:0 }} - ${{ max_price|default:0 }}
+                                            </span>
+                                        </div>
+                                        <div id="price-slider"
+                                            data-min="{{ min_price|default:0 }}"
+                                            data-max="{{ max_price|default:0 }}">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tpproduct__ratingarea">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <div class="tpproductdot">
-                                        <a class="tpproductdot__variationitem" href="shop-details.html">
-                                        <div class="tpproductdot__termshape">
-                                            <span class="tpproductdot__termshape-bg"></span>
-                                            <span class="tpproductdot__termshape-border"></span>
-                                        </div>
-                                        </a>
-                                        <a class="tpproductdot__variationitem" href="shop-details.html">
-                                        <div class="tpproductdot__termshape">
-                                            <span class="tpproductdot__termshape-bg red-product-bg"></span>
-                                            <span class="tpproductdot__termshape-border red-product-border"></span>
-                                        </div>
-                                        </a>
-                                        <a class="tpproductdot__variationitem" href="shop-details.html">
-                                        <div class="tpproductdot__termshape">
-                                            <span class="tpproductdot__termshape-bg orange-product-bg"></span>
-                                            <span class="tpproductdot__termshape-border orange-product-border"></span>
-                                        </div>
-                                        </a>
-                                        <a class="tpproductdot__variationitem" href="shop-details.html">
-                                        <div class="tpproductdot__termshape">
-                                            <span class="tpproductdot__termshape-bg purple-product-bg"></span>
-                                            <span class="tpproductdot__termshape-border purple-product-border"></span>
-                                        </div>
-                                        </a>
-                                    </div>
-                                    <div class="tpproduct__rating">
-                                        <ul>
-                                        <li>
-                                            <a href="#"><i class="fas fa-star"></i></a>
-                                            <a href="#"><i class="fas fa-star"></i></a>
-                                            <a href="#"><i class="fas fa-star"></i></a>
-                                            <a href="#"><i class="fas fa-star"></i></a>
-                                            <a href="#"><i class="far fa-star"></i></a>
-                                        </li>
-                                        <li>
-                                            <span>(81)</span>
-                                        </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                </div>
-            </div>
-            
-        </div>
-        
-        <div class="row">
-            <div class="col-xxl-12">
-                <div class="basic-pagination text-center">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="shop.html">
-                            <i class="fal fa-long-arrow-left"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="shop.html">01</a>
-                        </li>
-                        <li>
-                            <span class="current">02</span>
-                        </li>
-                        <li>
-                            <a href="shop.html">- - -</a>
-                        </li>
-                        <li>
-                            <a href="shop.html">07</a>
-                        </li>
-                        <li>
-                            <a href="shop.html">08</a>
-                        </li>
-                        <li>
-                            <a href="shop.html">
-                            <i class="fal fa-long-arrow-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- product-filter-area-end -->
+                        <!-- End .widget -->
+                    </div><!-- End .sidebar sidebar-shop -->
+                </aside><!-- End .col-lg-3 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
 {% endblock content %}
