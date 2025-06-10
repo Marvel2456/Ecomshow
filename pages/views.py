@@ -14,7 +14,7 @@ from django.db.models import Count, Min, Max
 
 def indexView(request):
     popular_product = Product.objects.filter(is_popular=True).order_by('-created_at')[:5]
-    featured_product = Product.objects.filter(is_featured=True).order_by('-created_at')[:5]
+    featured_product = Product.objects.filter(is_featured=True).order_by('-created_at')[:3]
     all_product = Product.objects.all().order_by('-created_at')[:5]
 
     context = {
@@ -71,24 +71,53 @@ def productDetailView(request, pk):
     }
     return render(request, 'pages/product_detail.html', context)
 
+
 def add_to_cart(request):
-    if request.method == "POST":
-        product_id = request.POST.get("product_id")
+    if request.method == 'POST':
+        product_id = request.POST.get('product_id')
+        
+        # Get or initialize the cart
         cart = request.session.get('cart', {})
-
-        if product_id in cart:
-            cart[product_id] += 1
-        else:
-            cart[product_id] = 1
-
+        
+        # Convert product_id to string since session serializes keys as strings
+        product_id = str(product_id)
+        
+        # Increment quantity or add new item
+        cart[product_id] = cart.get(product_id, 0) + 1
+        
+        # Save back to session
         request.session['cart'] = cart
+        request.session.modified = True
+        
+        # If it's an HTMX request, return just the cart count partial
+        if request.headers.get('HX-Request'):
+            return render(request, 'partials/cart_count.html', {
+                'cart_count': sum(cart.values())
+            })
+            
+        # For non-HTMX requests, redirect back to products
+        return redirect('products')
+        
+    return redirect('products')
 
-        cart_count = sum(cart.values())
+# def add_to_cart(request):
+#     if request.method == "POST":
+#         product_id = request.POST.get("product_id")
+#         cart = request.session.get('cart', {})
 
-        html = render_to_string("partials/cart_count.html", {'cart_count': cart_count})
-        return HttpResponse(html)
-        # response['HX-Redirect'] = request.path
-        # return response
+#         if product_id in cart:
+#             cart[product_id] += 1
+#         else:
+#             cart[product_id] = 1
+
+#         request.session['cart'] = cart
+
+#         cart_count = sum(cart.values())
+
+#         html = render_to_string("partials/cart_count.html", {'cart_count': cart_count})
+#         return HttpResponse(html)
+#         # response['HX-Redirect'] = request.path
+#         # return response
 
 
 def cartView(request):
@@ -130,11 +159,46 @@ def update_cart_quantity(request):
             cart.pop(product_id, None)
         else:
             cart[product_id] = quantity
+        
         request.session['cart'] = cart
+        request.session.modified = True
 
-        return redirect('cart')  # Redirect to cart page after update
+        # Handle HTMX request
+        if request.headers.get('HX-Request'):
+            product = get_object_or_404(Product, id=product_id)
+            subtotal = product.price * quantity
+            # Return updated cart row
+            return render(request, 'partials/cart_row.html', {
+                'product': product,
+                'quantity': quantity,
+                'subtotal': subtotal,
+            })
+
+        return redirect('cart')
 
     return redirect('cart')
+
+
+# def update_cart_quantity(request):
+#     if request.method == 'POST':
+#         product_id = request.POST.get('product_id')
+#         quantity = request.POST.get('quantity')
+
+#         try:
+#             quantity = int(quantity)
+#         except (ValueError, TypeError):
+#             quantity = 1
+
+#         cart = request.session.get('cart', {})
+#         if quantity < 1:
+#             cart.pop(product_id, None)
+#         else:
+#             cart[product_id] = quantity
+#         request.session['cart'] = cart
+
+#         return redirect('cart')  # Redirect to cart page after update
+
+#     return redirect('cart')
 
 def remove_from_cart(request):
     if request.method == 'POST' and request.headers.get('Hx-Request') == 'true':

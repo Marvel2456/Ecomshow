@@ -3,127 +3,103 @@
 
 {% block title %} Delivery and Returns {% endblock title %}
 {% block content %}
-<main class="main">
-    <div class="page-header text-center" style="background-image: url('{% static "assets/images/page-header-bg.jpg" %}')">
+<main>
+    <!-- Header -->
+    <section class="py-5 text-center bg-light" style="background-image: url('{% static "assets/images/page-header-bg.jpg" %}'); background-size:cover;">
         <div class="container">
-            <h1 class="page-title">Delivery & Returns<span>Pages</span></h1>
-        </div><!-- End .container -->
-    </div><!-- End .page-header -->
-    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <h1 class="display-5 fw-bold text-primary">Delivery & Returns</h1>
+            <p class="lead text-secondary">Everything you need to know about shipping, returns, and our policies.</p>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="bg-white py-2">
         <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{% url 'delivery' %}">Pages</a></li>
-                <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-primary">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Delivery & Returns</li>
             </ol>
-        </div><!-- End .container -->
-    </nav><!-- End .breadcrumb-nav -->
+        </div>
+    </nav>
 
-    <div class="page-content">
+    <!-- FAQ Section -->
+    <section class="py-5">
         <div class="container">
-            <h2 class="title text-center mb-3">F.A.Q</h2><!-- End .title -->
-            <div class="accordion accordion-rounded" id="accordion-1">
-                <div class="card card-box card-sm bg-light">
-                    <div class="card-header" id="heading-1">
-                        <h2 class="card-title">
-                            <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                                How long will it take to receive my order?
-                            </a>
-                        </h2>
-                    </div><!-- End .card-header -->
-                    <div id="collapse-1" class="collapse show" aria-labelledby="heading-1" data-parent="#accordion-1">
-                        <div class="card-body">
-                            Orders placed before 4pm will be shipped same day. Normal delivery takes 3-5 days. Express delivery takes 24h-48h after payment confirmation. 
-                        </div><!-- End .card-body -->
-                    </div><!-- End .collapse -->
-                </div><!-- End .card -->
-
-                <div class="card card-box card-sm bg-light">
-                    <div class="card-header" id="heading-2">
-                        <h2 class="card-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-                                Do I pay for delivery?
-                            </a>
-                        </h2>
-                    </div><!-- End .card-header -->
-                    <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion-1">
-                        <div class="card-body">
-                            We offer FREE tracked shipping worldwide, no matter which country you’re from we will do our best to get your desired apple products to you.
-                        </div><!-- End .card-body -->
-                    </div><!-- End .collapse -->
-                </div><!-- End .card -->
-
-                <div class="card card-box card-sm bg-light">
-                    <div class="card-header" id="heading-3">
-                        <h2 class="card-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-                                Will I be charged customs fees?
-                            </a>
-                        </h2>
-                    </div><!-- End .card-header -->
-                    <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-parent="#accordion-1">
-                        <div class="card-body">
-                            We offer FREE tracked shipping worldwide, no matter which country you’re from we will do our best to get your desired apple products to you.
-                        </div><!-- End .card-body -->
-                    </div><!-- End .collapse -->
-                </div><!-- End .card -->
-
-                
-            </div><!-- End .accordion -->
-
-            <h2 class="title text-center mb-3">Delivery and Returns</h2><!-- End .title -->
-            <div class="accordion accordion-rounded" id="accordion-2">
-
-                <div class="card card-box card-sm bg-light">
-                    <div class="card-header" id="heading2-2">
-                        <h2 class="card-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapse2-2" aria-expanded="false" aria-controls="collapse2-2">
-                                I haven’t received my order
-                            </a>
-                        </h2>
-                    </div><!-- End .card-header -->
-                    <div id="collapse2-2" class="collapse" aria-labelledby="heading2-2" data-parent="#accordion-2">
-                        <div class="card-body">
+            <h2 class="text-center mb-5 text-primary">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq1-heading">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                            How long will it take to receive my order?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-heading" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Orders placed before 4pm will be shipped same day. Normal delivery takes 3-5 days. Express delivery takes 24-48h after payment confirmation.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq2-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                            Do I pay for delivery?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-heading" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            We offer FREE tracked shipping worldwide, no matter which country you’re from.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq3-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                            Will I be charged customs fees?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-heading" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Customs fees may apply depending on your country. Please check with your local customs office for more information.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq4-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                            I haven’t received my order
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-heading" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
                             You can send us an email after 5 days of your order if you haven’t received it. We will then provide you with a tracking number.
-                        </div><!-- End .card-body -->
-                    </div><!-- End .collapse -->
-                </div><!-- End .card -->
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq5-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                            How can I return an item?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5-heading" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            If you are unhappy with your purchase, contact us within 30 days of receiving your order for a return address and refund instructions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="card card-box card-sm bg-light">
-                    <div class="card-header" id="heading2-3">
-                        <h2 class="card-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapse2-3" aria-expanded="false" aria-controls="collapse2-3">
-                                How can I return an item?
-                            </a>
-                        </h2>
-                    </div><!-- End .card-header -->
-                    <div id="collapse2-3" class="collapse" aria-labelledby="heading2-3" data-parent="#accordion-2">
-                        <div class="card-body">
-                            We welcome anyone who’s unhappy with his or her purchase to return them for a refund. In order to do so, please contact us within a thirty (30) day period after you have received your order. We will then provide you with a return address.
-                        </div><!-- End .card-body -->
-                    </div><!-- End .collapse -->
-                </div><!-- End .card -->
-            </div><!-- End .accordion -->
-        </div><!-- End .container -->
-    </div><!-- End .page-content -->
-
-    <div class="cta cta-display bg-image pt-4 pb-4" style="background-image: url(assets/images/backgrounds/cta/bg-7.jpg);">
+    <!-- Contact CTA -->
+    <section class="py-5 bg-primary text-white text-center">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-9 col-xl-7">
-                    <div class="row no-gutters flex-column flex-sm-row align-items-sm-center">
-                        <div class="col">
-                            <h3 class="cta-title text-white">If You Have More Questions</h3><!-- End .cta-title -->
-                            <p class="cta-desc text-white">Quisque volutpat mattis eros</p><!-- End .cta-desc -->
-                        </div><!-- End .col -->
-
-                        <div class="col-auto">
-                            <a href="contact.html" class="btn btn-outline-white"><span>CONTACT US</span><i class="icon-long-arrow-right"></i></a>
-                        </div><!-- End .col-auto -->
-                    </div><!-- End .row no-gutters -->
-                </div><!-- End .col-md-10 col-lg-9 -->
-            </div><!-- End .row -->
-        </div><!-- End .container -->
-    </div><!-- End .cta -->
-</main><!-- End .main -->
+            <h3 class="mb-3">Still have questions?</h3>
+            <p class="mb-4">Our team is here to help. Reach out and we'll get back to you as soon as possible.</p>
+            <a href="{% url 'contact' %}" class="btn btn-light btn-lg text-primary fw-bold">
+                <i class="bi bi-envelope me-2"></i>Contact Us
+            </a>
+        </div>
+    </section>
+</main>
 {% endblock content %}

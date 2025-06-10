@@ -1,154 +1,142 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Checkout {% endblock title %}
+{% block title %}Checkout{% endblock title %}
 
 {% block content %}
+<main>
+    <!-- Header -->
+    <section class="py-5 text-center bg-light" style="background-image: url('{% static "assets/images/page-header-bg.jpg" %}'); background-size:cover;">
+        <div class="container">
+            <h1 class="display-5 fw-bold text-primary">Checkout</h1>
+            <p class="lead text-secondary">Complete your order and get your mining equipment delivered fast!</p>
+        </div>
+    </section>
 
-<main class="main">
-<div class="page-header text-center" style="background-image: url('{% static "assets/images/page-header-bg.jpg" %}')">
-   <div class="container">
-      <h1 class="page-title">Checkout<span>Shop</span></h1>
-   </div><!-- End .container -->
-</div><!-- End .page-header -->
-   <nav aria-label="breadcrumb" class="breadcrumb-nav">
-         <div class="container">
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-               <li class="breadcrumb-item"><a href="#">Shop</a></li>
-               <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="bg-white py-2">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-primary">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'products' %}" class="text-primary">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
             </ol>
-         </div><!-- End .container -->
-   </nav><!-- End .breadcrumb-nav -->
+        </div>
+    </nav>
 
-   <div class="page-content">
-      <div class="checkout">
-            <div class="container">
-            <div class="checkout-discount">
-            </div><!-- End .checkout-discount -->
-            <form action="" method="POST">
-               {% csrf_token %}
-               <div class="row">
-                  <div class="col-lg-9">
-                     <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
-                        
-                          
-                        <label>Name *</label>
-                        <input type="text" name="customer_name" class="form-control" required>
-
-                        <label>Country *</label>
-                        <input type="text" name="customer_country" class="form-control" required>
-
-                        <label>Street address *</label>
-                        <input type="text" name="customer_address" class="form-control" placeholder="House number and Street name" required>
-                        
-                        <div class="row">
-                           <div class="col-sm-6">
-                              <label>Town / City *</label>
-                              <input type="text" name="customer_city" class="form-control" required>
-                           </div><!-- End .col-sm-6 -->
-
-                           <div class="col-sm-6">
-                              <label>State / County *</label>
-                              <input type="text" name="customer_state" class="form-control" required>
-                           </div><!-- End .col-sm-6 -->
-                        </div><!-- End .row -->
-
-                        <div class="row">
-                           <div class="col-sm-6">
-                              <label>Postcode / ZIP *</label>
-                              <input type="text" name="customer_zip" class="form-control" required>
-                           </div><!-- End .col-sm-6 -->
-
-                           <div class="col-sm-6">
-                              <label>Phone *</label>
-                              <input type="tel" name="customer_phone" class="form-control" required>
-                           </div><!-- End .col-sm-6 -->
-                        </div><!-- End .row -->
-
-                        <label>Email address *</label>
-                     <input type="email" name="customer_email" class="form-control" required>
-                        
-                     
-                        <label>Order notes (optional)</label>
-                     <textarea class="form-control" name="customer_notes" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
-                  </div><!-- End .col-lg-9 -->
-                  <aside class="col-lg-3">
-                     <div class="summary">
-                        <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
-
-                        <!-- ...existing code... -->
-                           <table class="table table-summary">
-                              <thead>
-                                 <tr>
-                                    <th>Product</th>
-                                    <th>Total</th>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                 {% for item in cart_items %}
-                                 <tr>
-                                    <td>
-                                       <a href="{% url 'product_detail' item.product.id %}">
-                                          {{ item.product.name }} <span class="text-muted">x{{ item.quantity }}</span>
-                                       </a>
-                                    </td>
-                                    <td>${{ item.total_price|floatformat:2 }}</td>
-                                 </tr>
-                                 {% endfor %}
-                                 <tr class="summary-subtotal">
-                                    <td>Subtotal:</td>
-                                    <td>${{ cart_total|floatformat:2 }}</td>
-                                 </tr>
-                                 <tr>
-                                    <td>Shipping:</td>
-                                    <td>Free shipping</td>
-                                 </tr>
-                                 <tr class="summary-total">
-                                    <td>Total:</td>
-                                    <td>${{ cart_total|floatformat:2 }}</td>
-                                 </tr>
-                              </tbody>
-                           </table>
-                           <!-- ...existing code... -->
-
-                        <div class="accordion-summary" id="accordion-payment">
-                           <div class="card">
-                              <div class="card-header">
-                                 <h2 class="card-title">Select Payment Method</h2>
-                              </div>
-                              <div class="card-body">
-                                 <div class="form-check">
-                                       <input class="form-check-input" type="radio" name="payment_method" id="bitcoin" value="bitcoin" required>
-                                       <label class="form-check-label" for="bitcoin">Bitcoin</label>
-                                 </div>
-                                 <div class="form-check">
-                                       <input class="form-check-input" type="radio" name="payment_method" id="ethereum" value="ethereum" required>
-                                       <label class="form-check-label" for="ethereum">Ethereum</label>
-                                 </div>
-                              </div>
-                           </div>
-                     </div><!-- End .accordion -->
-
-                     <input type="hidden" name="total_cost" value="{{ cart_total }}">
-
+    <section class="py-5">
+        <div class="container">
+            <form method="post">
+                {% csrf_token %}
+                <div class="row g-5">
+                    <!-- Billing Details -->
+                    <div class="col-lg-7">
+                        <h2 class="mb-4 text-primary">Billing Details</h2>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="customer_name" class="form-label">Name *</label>
+                                <input type="text" name="customer_name" class="form-control" id="customer_name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customer_country" class="form-label">Country *</label>
+                                <input type="text" name="customer_country" class="form-control" id="customer_country" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="customer_address" class="form-label">Street address *</label>
+                                <input type="text" name="customer_address" class="form-control" id="customer_address" placeholder="House number and Street name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customer_city" class="form-label">Town / City *</label>
+                                <input type="text" name="customer_city" class="form-control" id="customer_city" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customer_state" class="form-label">State / County *</label>
+                                <input type="text" name="customer_state" class="form-control" id="customer_state" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customer_zip" class="form-label">Postcode / ZIP *</label>
+                                <input type="text" name="customer_zip" class="form-control" id="customer_zip" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customer_phone" class="form-label">Phone *</label>
+                                <input type="tel" name="customer_phone" class="form-control" id="customer_phone" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="customer_email" class="form-label">Email address *</label>
+                                <input type="email" name="customer_email" class="form-control" id="customer_email" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="customer_notes" class="form-label">Order notes (optional)</label>
+                                <textarea class="form-control" name="customer_notes" id="customer_notes" rows="3" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Order Summary -->
+                    <div class="col-lg-5">
+                        <h2 class="mb-4 text-primary">Your Order</h2>
+                        <div class="card mb-4">
+                            <div class="card-body p-0">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th class="text-end">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for item in cart_items %}
+                                        <tr>
+                                            <td>
+                                                <a href="{% url 'product_detail' item.product.id %}" class="text-decoration-none">
+                                                    {{ item.product.name }} <span class="text-muted">x{{ item.quantity }}</span>
+                                                </a>
+                                            </td>
+                                            <td class="text-end">${{ item.total_price|floatformat:2 }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        <tr>
+                                            <td class="fw-bold">Subtotal:</td>
+                                            <td class="text-end fw-bold">${{ cart_total|floatformat:2 }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Shipping:</td>
+                                            <td class="text-end">Free shipping</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Total:</td>
+                                            <td class="text-end fw-bold">${{ cart_total|floatformat:2 }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Payment Methods -->
+                        <div class="mb-4">
+                            <h5 class="mb-3">Select Payment Method</h5>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="payment_method" id="bitcoin" value="bitcoin" required>
+                                <label class="form-check-label" for="bitcoin">Bitcoin</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="payment_method" id="ethereum" value="ethereum" required>
+                                <label class="form-check-label" for="ethereum">Ethereum</label>
+                            </div>
+                        </div>
+                        <input type="hidden" name="total_cost" value="{{ cart_total }}">
                         <button
-                           type="submit"
-                           class="btn btn-outline-primary-2 btn-order btn-block"
-                           hx-post="{% url 'check_payment_method' %}"
-                           hx-params="*"
-                           hx-target="#payment-response"
-                           hx-swap="innerHTML"
+                            type="submit"
+                            class="btn btn-primary btn-lg w-100"
+                            hx-post="{% url 'check_payment_method' %}"
+                            hx-params="*"
+                            hx-target="#payment-response"
+                            hx-swap="innerHTML"
                         >
-                           <span class="btn-text">Place Order</span>
-                           <span class="btn-hover-text">Proceed to Checkout</span>
+                            <i class="bi bi-lock me-2"></i>Place Order
                         </button>
-                     </div><!-- End .summary -->
-                  </aside><!-- End .col-lg-3 -->
-               </div><!-- End .row -->
+                    </div>
+                </div>
             </form>
-            </div><!-- End .container -->
-         </div><!-- End .checkout -->
-   </div><!-- End .page-content -->
-   <div id="payment-response"></div>
-</main><!-- End .main -->
+            <div id="payment-response"></div>
+        </div>
+    </section>
+</main>
 {% endblock content %}

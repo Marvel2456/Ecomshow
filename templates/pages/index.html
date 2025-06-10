@@ -3,320 +3,227 @@
 {% block title %} Home {% endblock title %}
 
 {% block content %}
+<!-- Hero Section -->
+<section class="py-5 position-relative overflow-hidden" style="background: linear-gradient(120deg, #e87864 0%, #ffb199 100%); min-height: 700px;">
+<div class="container position-relative z-2" style="min-height: 600px;">
+    <div class="row align-items-center justify-content-center" style="min-height:500px;">
+            <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown text-white" style="text-shadow: 0 2px 16px rgba(232,120,100,0.25);">
+                    Discover the Best Mining Equipment
+                </h1>
+                <p class="lead mb-4 animate__animated animate__fadeInLeft text-white-50" style="font-size:1.35rem;">
+                    High-Quality Crypto Mining Equipment at Unbeatable Prices! Backed by years of innovation and exceptional performance, designed to maximize your earnings in the ever-evolving world of cryptocurrency.
+                </p>
+                <a href="#" class="btn btn-light btn-lg text-primary fw-bold shadow animate__animated animate__pulse animate__infinite">
+                    <i class="bi bi-cart-fill me-2"></i>Shop Now
+                </a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="{% static 'assets/images/h3.jpg' %}"
+                    alt="Mining Equipment"
+                    class="img-fluid rounded shadow-lg animate__animated animate__zoomIn"
+                    style="max-height: 340px; object-fit: cover; border: 6px solid #fff3;">
+            </div>
+        </div>
+    </div>
+    <!-- Decorative SVG shape divider for smooth color transition to next section -->
+    <div class="position-absolute bottom-0 start-0 w-100 z-1" style="line-height:0;">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#fff" fill-opacity="1" d="M0,32L48,37.3C96,43,192,53,288,69.3C384,85,480,107,576,117.3C672,128,768,128,864,117.3C960,107,1056,85,1152,80C1248,75,1344,85,1392,90.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
+    </div>
+    <!-- Optional: Animated background shapes for subtle effect -->
+    <div class="position-absolute top-0 end-0 z-0" style="opacity:0.10; pointer-events:none;">
+        <i class="bi bi-hexagon-fill" style="font-size:180px; color:#fff;"></i>
+    </div>
+</section>
 
-<main class="main">
-   <div class="container-fluid">
-         <div class="row">
-            <div class="col-lg-6">
-               <div class="banner banner-big banner-overlay">
-                     <a href="#">
-                        <img src="{% static 'assets/images/h1.jpg' %}" alt="Banner">
-                     </a>
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon mb-3">
+                    <i class="bi bi-truck"></i>
+                </div>
+                <h5>Fast Shipping</h5>
+                <p>Get your products delivered quickly and reliably, wherever you are.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon mb-3">
+                    <i class="bi bi-shield-lock"></i>
+                </div>
+                <h5>Secure Payments</h5>
+                <p>Shop with confidence using our secure and trusted payment methods.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon mb-3">
+                    <i class="bi bi-headset"></i>
+                </div>
+                <h5>Expert Support</h5>
+                <p>Our team is here to help you with any questions or technical issues.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-                     <div class="banner-content banner-content-center">
-                        <h3 class="banner-subtitle text-white"><a href="#">New Collection</a></h3><!-- End .banner-subtitle -->
-                        <h2 class="banner-title text-white"><a href="#">Powerful Miners</a></h2><!-- End .banner-title -->
-                        <a href="#" class="btn underline"><span>Discover More</span></a>
-                     </div><!-- End .banner-content -->
-               </div><!-- End .banner -->
-            </div><!-- End .col-lg-6 -->
-
-            <div class="col-lg-6">
-               <div class="banner banner-big banner-overlay">
-                     <a href="#">
-                        <img src="{% static 'assets/images/h2.jpg' %}" alt="Banner">
-                     </a>
-
-                     <div class="banner-content banner-content-center">
-                        <h3 class="banner-subtitle text-white"><a href="#">New Collection</a></h3><!-- End .banner-subtitle -->
-                        <h2 class="banner-title text-white"><a href="#">Top Equipments</a></h2><!-- End .banner-title -->
-                        <a href="#" class="btn underline"><span>Discover More</span></a>
-                     </div><!-- End .banner-content -->
-               </div><!-- End .banner -->
-            </div><!-- End .col-lg-6 -->
-         </div><!-- End .row -->
-
-         <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
-               <div class="banner banner-overlay text-white">
-                     <a href="#">
-                        <img src="{% static 'assets/images/h5.jpg' %}" alt="Banner">
-                     </a>
-
-                     <div class="banner-content banner-content-right">
-                        {% comment %} <h4 class="banner-subtitle"><a href="#">Flip Flop</a></h4><!-- End .banner-subtitle -->
-                        <h3 class="banner-title"><a href="#">Summer<br>sale -70% off</a></h3><!-- End .banner-title --> {% endcomment %}
-                        <a href="#" class="btn underline btn-outline-white-3 banner-link">Shop Now</a>
-                     </div><!-- End .banner-content -->
-               </div><!-- End .banner -->
-            </div><!-- End .col-lg-4 -->
-
-            <div class="col-md-6 col-lg-4">
-               <div class="banner banner-overlay color-grey">
-                     <a href="#">
-                        <img src="{% static 'assets/images/h3.jpg' %}" alt="Banner">
-                     </a>
-
-                     <div class="banner-content">
-                        {% comment %} <h4 class="banner-subtitle"><a href="#">Accessories</a></h4><!-- End .banner-subtitle -->
-                        <h3 class="banner-title"><a href="#">2019 Winter<br>up to 50% off</a></h3><!-- End .banner-title --> {% endcomment %}
-                        <a href="#" class="btn underline banner-link">Shop Now</a>
-                     </div><!-- End .banner-content -->
-               </div><!-- End .banner -->
-            </div><!-- End .col-lg-4 -->
-
-            <div class="col-md-6 col-lg-4">
-               <div class="banner banner-overlay text-white">
-                     <a href="#">
-                        <img src="{% static 'assets/images/h6.jpg' %}" alt="Banner">
-                     </a>
-
-                     <div class="banner-content banner-content-right mr">
-                        {% comment %} <h4 class="banner-subtitle"><a href="#">New in</a></h4><!-- End .banner-subtitle -->
-                        <h3 class="banner-title"><a href="#">Women’s<br>sportswear</a></h3><!-- End .banner-title --> {% endcomment %}
-                        <a href="#" class="btn underline btn-outline-white-3 banner-link">Shop Now</a>
-                     </div><!-- End .banner-content -->
-               </div><!-- End .banner -->
-            </div><!-- End .col-lg-4 -->
-         </div><!-- End .row -->
-   </div><!-- End .container-fluid -->
-
-   <div class="icon-boxes-container bg-transparent">
-         <div class="container">
-            <div class="row justify-content-center">
-               <div class="col-lg-8 col-12 icon-boxes">
-                     <div class="col-sm-6 col-lg-4">
-                        <div class="icon-box icon-box-side">
-                           <span class="icon-box-icon">
-                                 <i class="icon-truck"></i>
-                           </span>
-
-                           <div class="icon-box-content">
-                                 <h3 class="icon-box-title">Payment & Delivery</h3><!-- End .icon-box-title -->
-                                 <p>Free shipping for orders over $50</p>
-                           </div><!-- End .icon-box-content -->
-                        </div><!-- End .icon-box -->
-                     </div><!-- End .col-sm-6 col-lg-4 -->
-                     
-                     <div class="col-sm-6 col-lg-4">
-                        <div class="icon-box icon-box-side">
-                           <span class="icon-box-icon">
-                                 <i class="icon-rotate-left"></i>
-                           </span>
-
-                           <div class="icon-box-content">
-                                 <h3 class="icon-box-title">Return & Refund</h3><!-- End .icon-box-title -->
-                                 <p>Free 100% money back guarantee</p>
-                           </div><!-- End .icon-box-content -->
-                        </div><!-- End .icon-box -->
-                     </div><!-- End .col-sm-6 col-lg-4 -->
-
-                     <div class="col-sm-6 col-lg-4">
-                        <div class="icon-box icon-box-side">
-                           <span class="icon-box-icon">
-                                 <i class="icon-headphones"></i>
-                           </span>
-
-                           <div class="icon-box-content">
-                                 <h3 class="icon-box-title">Quality Support</h3><!-- End .icon-box-title -->
-                                 <p>Alway online feedback 24/7</p>
-                           </div><!-- End .icon-box-content -->
-                        </div><!-- End .icon-box -->
-                     </div><!-- End .col-sm-6 col-lg-4 -->
-               </div>
-            </div><!-- End .row -->
-         </div><!-- End .container -->
-   </div><!-- End .icon-boxes-container -->
-
-   <div class="bg-light-2 pt-6 pb-6 featured">
-    <div class="container-fluid">
-        <div class="heading heading-center mb-3">
-            <h2 class="title">LATEST PRODUCTS</h2><!-- End .title -->
-
-            <ul class="nav nav-pills justify-content-center" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="featured-women-link" data-toggle="tab" href="#featured-women-tab" role="tab" aria-controls="featured-women-tab" aria-selected="true">Featured Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="featured-men-link" data-toggle="tab" href="#featured-men-tab" role="tab" aria-controls="featured-men-tab" aria-selected="false">Popular Products</a>
-                </li>
-            </ul>
-        </div><!-- End .heading -->
-
-        <div class="tab-content tab-content-carousel">
-            <!-- Women's Clothing Section -->
-            <div class="tab-pane p-0 fade show active" id="featured-women-tab" role="tabpanel" aria-labelledby="featured-women-link">
-                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl" 
-                    data-owl-options='{
-                        "nav": false, 
-                        "dots": true,
-                        "margin": 20,
-                        "loop": false,
-                        "responsive": {
-                            "0": {
-                                "items":2
-                            },
-                            "480": {
-                                "items":2
-                            },
-                            "768": {
-                                "items":3
-                            },
-                            "992": {
-                                "items":4
-                            },
-                            "1200": {
-                                "items":5,
-                                "nav": true
-                            }
-                        }
-                    }'>
-                    {% for product in featured_product %}
-                    <div class="product product-7 text-center">
-                        <figure class="product-media">
-                            <a href="{% url 'product_detail' product.id %}">
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-                            </a>
-                        </figure>
-                        <div class="product-body">
-                            <h3 class="product-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>
-                            <div class="product-price">
-                                ${{ product.price }}
-                            </div>
+<!-- Products Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 text-primary">Featured Products</h2>
+        <div class="row g-4">
+            {% for product in featured_product %}
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
+                    {% else %}
+                        <img src="{% static 'assets/images/placeholder.jpg' %}" class="card-img-top" alt="Placeholder" style="height: 200px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description|safe|truncatechars:100 }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-primary">${{ product.price|floatformat:2 }}</span>
+                            <form method="POST" 
+                                  hx-post="{% url 'add_to_cart' %}" 
+                                  hx-target="#cart-count"
+                                  hx-swap="outerHTML">
+                                {% csrf_token %}
+                                <input type="hidden" name="product_id" value="{{ product.id }}">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-cart-plus me-2"></i>Add to Cart
+                                </button>
+                            </form>
                         </div>
                     </div>
-                    {% endfor %}
-                </div><!-- End .owl-carousel -->
-            </div><!-- End .tab-pane -->
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    No featured products available at the moment.
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
-            <!-- Men's Clothing Section -->
-            <div class="tab-pane p-0 fade" id="featured-men-tab" role="tabpanel" aria-labelledby="featured-men-link">
-                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl" 
-                    data-owl-options='{
-                        "nav": false, 
-                        "dots": true,
-                        "margin": 20,
-                        "loop": false,
-                        "responsive": {
-                            "0": {
-                                "items":2
-                            },
-                            "480": {
-                                "items":2
-                            },
-                            "768": {
-                                "items":3
-                            },
-                            "992": {
-                                "items":4
-                            },
-                            "1200": {
-                                "items":5,
-                                "nav": true
-                            }
-                        }
-                    }'>
-                    {% for product in popular_product %}
-                    <div class="product product-7 text-center">
-                        <figure class="product-media">
-                            <a href="{% url 'product_detail' product.id %}">
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-                            </a>
-                        </figure>
-                        <div class="product-body">
-                            <h3 class="product-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>
-                            <div class="product-price">
-                                ${{ product.price }}
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div><!-- End .owl-carousel -->
-            </div><!-- End .tab-pane -->
-        </div><!-- End .tab-content -->
-    </div><!-- End .container-fluid -->
-</div><!-- End .bg-light-2 -->
+<!-- Testimonials Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 text-primary">What Our Customers Say</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <blockquote class="testimonial testimonial-icon text-center">
+                    <p class="lead">“Outstanding Service”</p>
+                    <p>“I was impressed by how quickly my order was processed and delivered. The team was responsive and answered all my questions. I highly recommend this store to anyone looking for quality mining equipment.”</p>
+                    <cite>
+                        Sarah Williams,
+                        <span>Customer</span>
+                    </cite>
+                </blockquote>
+                <blockquote class="testimonial testimonial-icon text-center">
+                    <p class="lead">“Top Quality Products”</p>
+                    <p>“The products I received exceeded my expectations. Everything was exactly as described and works perfectly. I appreciate the transparency and professionalism throughout the entire process.”</p>
+                    <cite>
+                        Michael Brown,
+                        <span>Customer</span>
+                    </cite>
+                </blockquote>
+                <blockquote class="testimonial testimonial-icon text-center">
+                    <p class="lead">“Excellent Support”</p>
+                    <p>“Customer support was fantastic! They guided me through my purchase and even followed up after delivery to ensure I was satisfied. I will definitely shop here again.”</p>
+                    <cite>
+                        Linda Chen,
+                        <span>Customer</span>
+                    </cite>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
 
-   <div class="mb-6"></div><!-- End .mb-6 -->
+<!-- FAQ Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-5 text-primary">Frequently Asked Questions</h2>
+        <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">How long does shipping take?</h5>
+                    <p class="card-text">Shipping typically takes 3-7 business days depending on your location. We provide tracking for all orders.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">What payment methods do you accept?</h5>
+                    <p class="card-text">We accept major credit cards, Bitcoin, Ethereum, and secure bank transfers for your convenience.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Can I return a product?</h5>
+                    <p class="card-text">Yes! We offer a 14-day return policy on all unused products. Please see our Delivery & Returns page for details.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Do you offer technical support?</h5>
+                    <p class="card-text">Absolutely! Our expert team is available to assist you with setup, troubleshooting, and any technical questions you may have.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Are your products covered by warranty?</h5>
+                    <p class="card-text">Yes, all our mining equipment comes with a manufacturer’s warranty. Please check the product page for specific warranty details.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">How can I track my order?</h5>
+                    <p class="card-text">Once your order is shipped, you’ll receive a tracking number via email to monitor your shipment in real time.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
 
-
-   <div class="page-content pb-0">
-         <div class="heading heading-center mb-3">
-               <h2 class="title">ABOUT US</h2><!-- End .title -->
-         </div><!-- End .heading -->
-         <div class="container">
-         <div class="row">
+<!-- Vision & Mission Section -->
+<section class="py-5" style="background: linear-gradient(120deg, #e87864 0%, #ffb199 100%);">
+    <div class="container">
+        <div class="row">
             <div class="col-lg-6 mb-3 mb-lg-0">
-                  <h2 class="title">Our Vision</h2><!-- End .title -->
-                  <p>
-                     To empower individuals and businesses worldwide by providing access to the latest, most reliable mining equipment and technology. We envision a future where digital assets are accessible to everyone, and innovation drives sustainable growth in the blockchain industry.
-                  </p>
-            </div><!-- End .col-lg-6 -->
-            
+                <div class="p-4 rounded-3 h-100" style="background: rgba(255,255,255,0.15); box-shadow: 0 4px 24px rgba(232,120,100,0.08);">
+                    <h2 class="title text-white">Our Vision</h2>
+                    <p class="text-white-50">
+                        To empower individuals and businesses worldwide by providing access to the latest, most reliable mining equipment and technology. We envision a future where digital assets are accessible to everyone, and innovation drives sustainable growth in the blockchain industry.
+                    </p>
+                </div>
+            </div>
             <div class="col-lg-6">
-                  <h2 class="title">Our Mission</h2><!-- End .title -->
-                  <p>
-                     Our mission is to deliver high-quality mining products and exceptional customer service, ensuring our clients achieve their goals in the rapidly evolving world of cryptocurrency. We are committed to transparency, integrity, and continuous improvement, making us the trusted partner for all your mining needs.
-                  </p>
-            </div><!-- End .col-lg-6 -->
-         </div><!-- End .row -->
-
-    <div class="mb-5"></div><!-- End .mb-4 -->
-</div><!-- End .container -->
-
-         
-
-         <div class="mb-2"></div><!-- End .mb-2 -->
-
-   </div><!-- End .page-content -->
-
-
-   <div class="bg-light-2 pt-7 pb-6 testimonials">
-         <div class="container">
-            <h2 class="title text-center mb-2">Our Customers Say</h2><!-- End .title text-center -->
-            <div class="owl-carousel owl-simple owl-testimonials" data-toggle="owl" 
-               data-owl-options='{
-                     "nav": false, 
-                     "dots": true,
-                     "margin": 20,
-                     "loop": false,
-                     "responsive": {
-                        "1200": {
-                           "nav": true
-                        }
-                     }
-               }'>
-               <blockquote class="testimonial testimonial-icon text-center">
-                  <p class="lead">“Outstanding Service”</p>
-                  <p>“I was impressed by how quickly my order was processed and delivered. The team was responsive and answered all my questions. I highly recommend this store to anyone looking for quality mining equipment.”</p>
-                  <cite>
-                     Sarah Williams,
-                     <span>Customer</span>
-                  </cite>
-               </blockquote><!-- End .testimonial -->
-
-               <blockquote class="testimonial testimonial-icon text-center">
-                  <p class="lead">“Top Quality Products”</p>
-                  <p>“The products I received exceeded my expectations. Everything was exactly as described and works perfectly. I appreciate the transparency and professionalism throughout the entire process.”</p>
-                  <cite>
-                     Michael Brown,
-                     <span>Customer</span>
-                  </cite>
-               </blockquote><!-- End .testimonial -->
-
-               <blockquote class="testimonial testimonial-icon text-center">
-                  <p class="lead">“Excellent Support”</p>
-                  <p>“Customer support was fantastic! They guided me through my purchase and even followed up after delivery to ensure I was satisfied. I will definitely shop here again.”</p>
-                  <cite>
-                     Linda Chen,
-                     <span>Customer</span>
-                  </cite>
-               </blockquote><!-- End .testimonial -->
-            </div><!-- End .testimonials-slider owl-carousel -->
-         </div><!-- End .container -->
-   </div><!-- End .bg-light pt-5 pb-5 -->
-
-   
-</main>
+                <div class="p-4 rounded-3 h-100" style="background: rgba(255,255,255,0.10); box-shadow: 0 4px 24px rgba(232,120,100,0.08);">
+                    <h2 class="title text-white">Our Mission</h2>
+                    <p class="text-white-50">
+                        Our mission is to deliver high-quality mining products and exceptional customer service, ensuring our clients achieve their goals in the rapidly evolving world of cryptocurrency. We are committed to transparency, integrity, and continuous improvement, making us the trusted partner for all your mining needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock content %}

@@ -1,108 +1,89 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Contact {% endblock title %}
+{% block title %}Contact{% endblock title %}
 
 {% block content %}
-<main class="main">
-    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+<main>
+    <!-- Header -->
+    <section class="py-5 text-center bg-light" style="background-image: url('{% static "assets/images/contact-header-bg.jpg" %}'); background-size:cover;">
         <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Contact us</li>
+            <h1 class="display-5 fw-bold text-primary">Contact Us</h1>
+            <p class="lead text-secondary">We'd love to hear from you! Reach out with any questions or feedback.</p>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="bg-white py-2">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-primary">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact</li>
             </ol>
-        </div><!-- End .container -->
-    </nav><!-- End .breadcrumb-nav -->
-    <div class="container">
-        <div class="page-header page-header-big text-center" style="background-image: url('{% static "assets/images/contact-header-bg.jpg" %}')">
-            <h1 class="page-title text-white">Contact us<span class="text-white">keep in touch with us</span></h1>
-        </div><!-- End .page-header -->
-    </div><!-- End .container -->
+        </div>
+    </nav>
 
-    <div class="page-content pb-0">
+    <!-- Contact Info & Form -->
+    <section class="py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-2 mb-lg-0">
-                    <h2 class="title mb-1">Contact Information</h2><!-- End .title mb-2 -->
-                    <p class="mb-3">Contact us via any of our contact information.</p>
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <div class="contact-info">
-                                <h3>The Office</h3>
-
-                                <ul class="contact-list">
-                                    <li>
-                                        <i class="icon-map-marker"></i>
-                                        9225 Manchester St, Houston, TX 77012, United States
-                                    </li>
-                                    <li>
-                                        <i class="icon-phone"></i>
-                                        <a href="tel:#">+1713-928-9123</a>
-                                    </li>
-                                    <li>
-                                        <i class="icon-envelope"></i>
-                                        <a href="mailto:#">info@hashminers.com</a>
-                                    </li>
-                                </ul><!-- End .contact-list -->
-                            </div><!-- End .contact-info -->
-                        </div><!-- End .col-sm-7 -->
-
-                        <div class="col-sm-5">
-                            <div class="contact-info">
-                                <h3>The Office</h3>
-
-                                <ul class="contact-list">
-                                    <li>
-                                        <i class="icon-clock-o"></i>
-                                        <span class="text-dark">Monday-Saturday</span> <br>11am-7pm ET
-                                    </li>
-                                    <li>
-                                        <i class="icon-calendar"></i>
-                                        <span class="text-dark">Sunday</span> <br>11am-6pm ET
-                                    </li>
-                                </ul><!-- End .contact-list -->
-                            </div><!-- End .contact-info -->
-                        </div><!-- End .col-sm-5 -->
-                    </div><!-- End .row -->
-                </div><!-- End .col-lg-6 -->
-                <div class="col-lg-6">
-                    <h2 class="title mb-1">Got Any Questions?</h2><!-- End .title mb-2 -->
-                    <p class="mb-2">Use the form below to get in touch with the team</p>
-
-                    <form action="" method="post" class="contact-form mb-3">
+            <div class="row g-5">
+                <!-- Contact Info -->
+                <div class="col-lg-5">
+                    <h2 class="mb-4 text-primary">Contact Information</h2>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3">
+                            <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+                            9225 Manchester St, Houston, TX 77012, United States
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-telephone-fill me-2 text-primary"></i>
+                            <a href="tel:+17139289123" class="text-decoration-none text-dark">+1 713-928-9123</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                            <a href="mailto:info@minershub.com" class="text-decoration-none text-dark">info@minershub.com</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-clock-fill me-2 text-primary"></i>
+                            <span class="fw-bold">Monday-Saturday:</span> 11am-7pm ET<br>
+                            <span class="fw-bold">Sunday:</span> 11am-6pm ET
+                        </li>
+                    </ul>
+                    <div>
+                        <a href="#" class="text-primary me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-primary me-3"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-primary me-3"><i class="bi bi-instagram fs-4"></i></a>
+                    </div>
+                </div>
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <h2 class="mb-4 text-primary">Send Us a Message</h2>
+                    <form method="post" novalidate>
                         {% csrf_token %}
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <label for="cname" class="sr-only">Name</label>
-                                <input type="text" name="full_name" class="form-control" id="cname" placeholder="Name *" required>
-                            </div><!-- End .col-sm-6 -->
-
-                            <div class="col-sm-6">
-                                <label for="cemail" class="sr-only">Email</label>
-                                <input type="email" name="email" class="form-control" id="cemail" placeholder="Email *" required>
-                            </div><!-- End .col-sm-6 -->
-                        </div><!-- End .row -->
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <label for="csubject" class="sr-only">Subject</label>
-                                <input type="text" name="subject" class="form-control" id="csubject" placeholder="Subject">
-                            </div><!-- End .col-sm-6 -->
-                        </div><!-- End .row -->
-
-                        <label for="cmessage" class="sr-only">Message</label>
-                        <textarea class="form-control" name="message" cols="30" rows="4" id="cmessage" required placeholder="Message *"></textarea>
-
-                        <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
-                            <span>SUBMIT</span>
-                            <i class="icon-long-arrow-right"></i>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="cname" class="form-label">Name *</label>
+                                <input type="text" name="full_name" class="form-control" id="cname" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cemail" class="form-label">Email *</label>
+                                <input type="email" name="email" class="form-control" id="cemail" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="csubject" class="form-label">Subject</label>
+                                <input type="text" name="subject" class="form-control" id="csubject">
+                            </div>
+                            <div class="col-12">
+                                <label for="cmessage" class="form-label">Message *</label>
+                                <textarea class="form-control" name="message" id="cmessage" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg mt-4">
+                            <i class="bi bi-envelope me-2"></i>Send Message
                         </button>
-                    </form><!-- End .contact-form -->
-                </div><!-- End .col-lg-6 -->
-            </div><!-- End .row -->
-
-            <hr class="mt-4 mb-5">
-        </div><!-- End .container -->
-    </div><!-- End .page-content -->
-</main><!-- End .main -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock content %}

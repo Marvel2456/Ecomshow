@@ -66,8 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'ecom.context_processors.cart_count',
-                'ecom.context_processors.cart_items',
+                'ecom.context_processors.cart_processor',
+                # 'ecom.context_processors.cart_items',
             ],
         },
     },
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 
 
 UNFOLD = {
-    "SITE_HEADER": "Hashminers"
+    "SITE_HEADER": "MINERSHUB"
 }
 
 # Database
